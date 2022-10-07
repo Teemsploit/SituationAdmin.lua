@@ -11,29 +11,28 @@ local rconsoleprint = rconsoleprint
 local rconsoleinput = rconsoleinput
 rconsolename(Title .. " ".. User)
 local Commands = {
-    ["sit"] = function()
-        Humanoid.Sit = true
+  One = function()
+        rconsoleprint("k \n")
     end,
-    ["clear"] = function()
-        rconsoleprint("@@RED@@")
-        rconsoleclear()
-        rconsoleprint("cleared")
-        task.wait(0.5)
-        rconsoleclear()
-    end
+    Two = function()
+        rconsoleprint("hi \n")
+    end,
+    
 }
 
 function nexthandler()
     rconsoleprint("@@WHITE@@")
+    rconsoleprint("Input: ")
     local newinput = rconsoleinput()
 
     for funcname, func in pairs(Commands) do
         if newinput == funcname or string.upper(newinput) == string.upper(funcname) then
             rconsoleprint("@@GREEN@@")
-            rconsoleprint("Executed " .. funcname .. " successfully!\n")
             func()
+            rconsoleprint("Executed " .. funcname .. " successfully!\n")
             nexthandler()
         else
+            rconsoleerr("Failed to execute " .. funcname .. "!\n")
             nexthandler()
         end
     end
