@@ -41,3 +41,4 @@ function nexthandler()
         nexthandler()
     end
 end
+nexthandler()
