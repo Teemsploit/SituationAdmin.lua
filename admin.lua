@@ -12,7 +12,11 @@ local rconsoleinput = rconsoleinput
 
 rconsolename(Title .. " ".. User)
 
--- You can thank Drqonic for this actual good implementation of commands.
+--[[
+You can thank Drqonic for this actual good implementation of commands.
+-------------------------------------------------------------------------
+Thank you Drqonic <3
+]]--
 
 local commands = {
     bitchcount = function()
