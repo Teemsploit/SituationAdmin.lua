@@ -9,15 +9,14 @@ local Title = "Welcome to Situation Admin |"
 local rconsoleclear = rconsoleclear
 local rconsoleprint = rconsoleprint
 local rconsoleinput = rconsoleinput
-rconsolename(Title .. " ".. User)
+rconsolename(Title .. " " .. User)
 local commands = {
-  one = function()
+    one = function()
         rconsoleprint("k \n")
     end,
     clear = function()
         rconsoleclear()
-    end,
-    
+    end
 }
 
 function nexthandler()
@@ -27,7 +26,7 @@ function nexthandler()
     local command = string.lower(rconsoleinput())
     local getCommand = commands[command]
 
-    if(getCommand) then
+    if (getCommand) then
         rconsoleprint("@@GREEN@@")
 
         commands[command]()
