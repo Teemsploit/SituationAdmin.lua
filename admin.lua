@@ -10,11 +10,11 @@ local rconsoleclear = rconsoleclear
 local rconsoleprint = rconsoleprint
 local rconsoleinput = rconsoleinput
 rconsolename(Title .. " ".. User)
-local Commands = {
-  One = function()
+local commands = {
+  one = function()
         rconsoleprint("k \n")
     end,
-    Two = function()
+    two = function()
         rconsoleprint("hi \n")
     end,
     
@@ -23,19 +23,21 @@ local Commands = {
 function nexthandler()
     rconsoleprint("@@WHITE@@")
     rconsoleprint("Input: ")
-    local newinput = rconsoleinput()
 
-    for funcname, func in pairs(Commands) do
-        if newinput == funcname or string.upper(newinput) == string.upper(funcname) then
-            rconsoleprint("@@GREEN@@")
-            func()
-            rconsoleprint("Executed " .. funcname .. " successfully!\n")
-            nexthandler()
-        else
-            rconsoleerr("Failed to execute " .. funcname .. "!\n")
-            nexthandler()
-        end
+    local command = string.lower(rconsoleinput())
+    local getCommand = commands[command]
+
+    if(getCommand) then
+        rconsoleprint("@@GREEN@@")
+
+        commands[command]()
+
+        rconsoleprint("Executed " .. command .. " successfully!\n")
+
+        nexthandler()
+    else
+        rconsoleerr("Failed to execute " .. command .. "!\n")
+
+        nexthandler()
     end
 end
-
-nexthandler()
