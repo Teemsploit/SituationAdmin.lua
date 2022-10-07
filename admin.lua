@@ -14,8 +14,8 @@ local commands = {
   one = function()
         rconsoleprint("k \n")
     end,
-    two = function()
-        rconsoleprint("hi \n")
+    clear = function()
+        rconsoleclear()
     end,
     
 }
@@ -41,4 +41,5 @@ function nexthandler()
         nexthandler()
     end
 end
+
 nexthandler()
