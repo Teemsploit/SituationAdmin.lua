@@ -20,9 +20,7 @@ Thank you Drqonic <3
 
 local commands = {
     bitchcount = function()
-    rconsoleprint("You Have ")
-        rconsoleprint(math.random(1, 100))
-        rconsoleprint(" bitches.")
+rconsoleprint("You have " .. math.random(1, 100) .. " bitches")
     end, 
     clear = function
         rconsoleclear()
