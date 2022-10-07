@@ -9,36 +9,36 @@ local Title = "Welcome to Situation Admin |"
 local rconsoleclear = rconsoleclear
 local rconsoleprint = rconsoleprint
 local rconsoleinput = rconsoleinput
-rconsolename(Title .. " " .. User)
+
+rconsolename(Title .. " ".. User)
+
 local commands = {
-    one = function()
-        rconsoleprint("k \n")
-    end,
+    sit = function()
+        Player.character.Humanoid.sit = true
+    end, 
     clear = function()
         rconsoleclear()
-    end
+    end,
 }
 
 function nexthandler()
+    rconsoleclear()
     rconsoleprint("@@WHITE@@")
     rconsoleprint("Input: ")
 
     local command = string.lower(rconsoleinput())
     local getCommand = commands[command]
 
-    if (getCommand) then
-        rconsoleprint("@@GREEN@@")
-
+    if(getCommand) 
         commands[command]()
 
+        rconsoleprint("@@GREEN@@")
         rconsoleprint("Executed " .. command .. " successfully!\n")
-
-        nexthandler()
     else
         rconsoleerr("Failed to execute " .. command .. "!\n")
-
-        nexthandler()
     end
+
+    nexthandler()
 end
 
 nexthandler()
