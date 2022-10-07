@@ -36,7 +36,7 @@ local commands = {
 	bitchcount = function()
 	
 	end, 
-	clear = rconsoleclear()
+	clear = rconsoleclear
 }
 
 function nexthandler()
