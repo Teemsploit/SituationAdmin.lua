@@ -32,28 +32,28 @@ local commands = {
 		Player.character.HumanoidRootPart.CFrame = Players.player.Character.HumanoidRootPart.CFrame
 	end, 
 	bitchcount = function()
-	rconsolewarn("You have " .. math.random(1, 100) .. " bitches")
+		rconsolewarn("You have " .. math.random(1, 100) .. " bitches")
 	end, 
 	clear = rconsoleclear
 }
 
 function nexthandler()
-    rconsoleprint("@@WHITE@@")
-    rconsoleprint("Input: ")
+	rconsoleprint("@@WHITE@@")
+	rconsoleprint("Input: ")
 
-    local command = string.lower(rconsoleinput())
-    local getCommand = commands[command]
+	local command = string.lower(rconsoleinput())
+	local getCommand = commands[command]
 
-    if(getCommand) then 
-        commands[command]()
-        
-        rconsoleprint("@@GREEN@@")
-        rconsoleprint("Executed " .. command .. " successfully!\n")
-    else
-        rconsoleerr("Failed to execute " .. command .. "!\n")
-    end
+	if(getCommand) then 
+		commands[command]()
 
-    nexthandler()
+		rconsoleprint("@@GREEN@@")
+		rconsoleprint("Executed " .. command .. " successfully!\n")
+	else
+		rconsoleerr("Failed to execute " .. command .. "!\n")
+	end
+
+	nexthandler()
 end
 
 nexthandler()
