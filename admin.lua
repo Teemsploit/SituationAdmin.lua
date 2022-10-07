@@ -14,11 +14,7 @@ rconsolename(Title .. " ".. User)
 
 local commands = {
     bitchcount = function()
-        local Amount = "You have "
-local Bitches = " Bitches."
-local Zero = 0
-local DisplayAmount = Ran()
-messagebox(Amount .. DisplayAmount .. Bitches, "How many bitches do you have?", 0)
+    
     end, 
     clear = function()
         rconsoleclear()
@@ -26,7 +22,6 @@ messagebox(Amount .. DisplayAmount .. Bitches, "How many bitches do you have?", 
 }
 
 function nexthandler()
-    rconsoleclear()
     rconsoleprint("@@WHITE@@")
     rconsoleprint("Input: ")
 
