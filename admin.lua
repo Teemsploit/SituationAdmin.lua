@@ -27,9 +27,9 @@ local commands = {
 		rconsoleprint("Choice: ")
 
 		playerNum = tonumber(rconsoleinput())
-		player = game:GetService("Players"):GetPlayers()[playerNum].Name
+		plr = game:GetService("Players"):GetPlayers()[playerNum].Name
 
-		Player.character.HumanoidRootPart.CFrame = Players.player.Character.HumanoidRootPart.CFrame
+		Player.character.HumanoidRootPart.CFrame = Players[plr].Character.HumanoidRootPart.CFrame
 	end, 
 	bitchcount = function()
 		rconsolewarn("You have " .. math.random(1, 100) .. " bitches")
