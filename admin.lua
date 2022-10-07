@@ -29,12 +29,10 @@ local commands = {
 		playerNum = tonumber(rconsoleinput())
 		player = game:GetService("Players"):GetPlayers()[playerNum].Name
 
-		--[[
-			Teleportation code chunk goes here...
-		]]--
+		Player.character.HumanoidRootPart.CFrame = Players.player.Character.HumanoidRootPart.CFrame
 	end, 
 	bitchcount = function()
-	
+	rconsolewarn("You have " .. math.random(1, 100) .. " bitches")
 	end, 
 	clear = rconsoleclear
 }
