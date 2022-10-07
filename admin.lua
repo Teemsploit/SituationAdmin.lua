@@ -9,7 +9,10 @@ local Title = "Welcome to Situation Admin |"
 local rconsoleclear = rconsoleclear
 local rconsoleprint = rconsoleprint
 local rconsoleinput = rconsoleinput
+
 rconsolename(Title .. " ".. User)
+
+-- You can thank Drqonic for this actual good implementation of commands.
 
 local commands = {
     bitchcount = function()
