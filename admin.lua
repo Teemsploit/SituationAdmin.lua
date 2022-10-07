@@ -18,7 +18,7 @@ local Commands = {
         rconsoleprint("@@RED@@")
         rconsoleclear()
         rconsoleprint("cleared")
-        task.waitwait(0.5)
+        task.wait(0.5)
         rconsoleclear()
     end
 }
