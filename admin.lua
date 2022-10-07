@@ -15,6 +15,10 @@ local Commands = {
         Humanoid.Sit = true
     end,
     ["clear"] = function()
+        rconsoleprint("@@RED@@")
+        rconsoleclear()
+        rconsoleprint("cleared")
+        task.waitwait(0.5)
         rconsoleclear()
     end
 }
