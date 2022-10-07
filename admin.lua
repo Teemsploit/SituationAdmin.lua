@@ -21,7 +21,7 @@ Thank you Drqonic <3
 local commands = {
 	teleport = function()
 		for i, plr in pairs(game:GetService("Players"):GetPlayers()) do
-			rconsoleprint(i .. ".) " .. plr.Name)
+			rconsoleprint(i .. ".) " .. plr.Name .. "\n")
 		end
 
 		rconsoleprint("Choice: ")
