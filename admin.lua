@@ -10,7 +10,7 @@ local rconsoleclear = rconsoleclear
 local rconsoleprint = rconsoleprint
 local rconsoleinput = rconsoleinput
 
-rconsolename(Title .. " ".. User)
+rconsolename(Title .. " " .. User)
 
 --[[
 You can thank Drqonic for this actual good implementation of commands.
@@ -19,10 +19,24 @@ Thank you Drqonic <3
 ]]--
 
 local commands = {
-    bitchcount = function()
-        rconsoleprint("You have " .. math.random(1, 100) .. " bitches")
-    end, 
-    clear = rconsoleclear
+	teleport = function()
+		for i, plr in pairs(game:GetService("Players"):GetPlayers()) do
+			rconsoleprint(i .. ".) " .. plr.Name)
+		end
+
+		rconsoleprint("Choice: ")
+
+		playerNum = tonumber(rconsoleinput())
+		player = game:GetService("Players"):GetPlayers()[playerNum].Name
+
+		--[[
+			Teleportation code chunk goes here...
+		]]--
+	end, 
+	bitchcount = function()
+	
+	end, 
+	clear = rconsoleclear()
 }
 
 function nexthandler()
