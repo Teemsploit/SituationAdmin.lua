@@ -14,7 +14,7 @@ rconsolename(Title .. " ".. User)
 
 local commands = {
     sit = function()
-        Player.character.Humanoid.sit = true
+        Humanoid.sit = true
     end, 
     clear = function()
         rconsoleclear()
