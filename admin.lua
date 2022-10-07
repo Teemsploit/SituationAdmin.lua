@@ -20,11 +20,9 @@ Thank you Drqonic <3
 
 local commands = {
     bitchcount = function()
-rconsoleprint("You have " .. math.random(1, 100) .. " bitches")
+        rconsoleprint("You have " .. math.random(1, 100) .. " bitches")
     end, 
-    clear = function
-        rconsoleclear()
-        end, 
+    clear = rconsoleclear
 }
 
 function nexthandler()
