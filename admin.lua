@@ -25,22 +25,25 @@ local function getroot(char)
 end
 
 local commands = {
-    teleport = function(...)
-        for i, plr in ipairs(Players:GetPlayers()) do
-            rconsoleprint(i .. ".) " .. plr.Name .. "\n")
-        end
+	teleport = function(...)
+		for i, plr in ipairs(Players:GetPlayers()) do
+			rconsoleprint(i .. ".) " .. plr.Name .. "\n")
+		end
 
-        rconsoleprint("Choice: ")
+		rconsoleprint("Choice: ")
 
-        playerNum = tonumber(rconsoleinput())
-        plrchar = game:GetService("Players"):GetPlayers()[playerNum].Character
-         --
-        --[[ if playerNum == nil then
-            nexthandler()
-            else ]] getroot(character).CFrame =
-            getroot(plrchar).CFrame
-        -- end
-    end, 
+		playerNum = tonumber(rconsoleinput())
+
+		players = game:GetService("Players"):GetPlayers()
+
+		if playerNum ~= nil and playerNum > 0 and playerNum <= #players then
+			plrchar = players[playerNum].Character
+
+			getroot(character).CFrame = getroot(plrchar).CFrame
+		else
+			rconsolewarn("Player chosen is invalid\n")
+		end
+	end, 
 	
     bitchcount = function(...)
         rconsolewarn("You have " .. math.random(1, 100) .. " bitches")
