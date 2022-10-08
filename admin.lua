@@ -12,6 +12,12 @@ local rconsoleinput = rconsoleinput
 
 rconsolename(Title .. " " .. User)
 
+local function getroot(char)
+    local rpart =
+        char:FindFirstChild("HumanoidRootPart") or char:FindFirstChild("Torso") or char:FindFirstChild("UpperTorso")
+    return rpart
+end
+
 --[[
 You can thank Drqonic for this actual good implementation of commands.
 -------------------------------------------------------------------------
@@ -19,41 +25,41 @@ Thank you Drqonic <3
 ]]--
 
 local commands = {
-	teleport = function()
-		for i, plr in pairs(game:GetService("Players"):GetPlayers()) do
-			rconsoleprint(i .. ".) " .. plr.Name .. "\n")
-		end
+    teleport = function()
+        for i, plr in ipairs(Players:GetPlayers()) do
+            rconsoleprint(i .. ".) " .. plr.Name .. "\n")
+        end
 
-		rconsoleprint("Choice: ")
+        rconsoleprint("Choice: ")
 
-		playerNum = tonumber(rconsoleinput())
-		plr = game:GetService("Players"):GetPlayers()[playerNum].Name
+        playerNum = tonumber(rconsoleinput())
+        plrchar = game:GetService("Players"):GetPlayers()[playerNum].Character
 
-		Player.character.HumanoidRootPart.CFrame = Players[plr].Character.HumanoidRootPart.CFrame
-	end, 
-	bitchcount = function()
-		rconsolewarn("You have " .. math.random(1, 100) .. " bitches")
-	end, 
-	clear = rconsoleclear
+        getroot(character).CFrame = getroot(plrchar).CFrame
+    end,
+    bitchcount = function()
+        rconsolewarn("You have " .. math.random(1, 100) .. " bitches")
+    end,
+    clear = rconsoleclear
 }
 
 function nexthandler()
-	rconsoleprint("@@WHITE@@")
-	rconsoleprint("Input: ")
+    rconsoleprint("@@WHITE@@")
+    rconsoleprint("Input: ")
 
-	local command = string.lower(rconsoleinput())
-	local getCommand = commands[command]
+    local command = string.lower(rconsoleinput())
+    local getCommand = commands[command]
 
-	if(getCommand) then 
-		commands[command]()
+    if (getCommand) then
+        commands[command]()
 
-		rconsoleprint("@@GREEN@@")
-		rconsoleprint("Executed " .. command .. " successfully!\n")
-	else
-		rconsoleerr("Failed to execute " .. command .. "!\n")
-	end
+        rconsoleprint("@@GREEN@@")
+        rconsoleprint("Executed " .. command .. " successfully!\n")
+    else
+        rconsoleerr("Failed to execute " .. command .. "!\n")
+    end
 
-	nexthandler()
+    nexthandler()
 end
 
 nexthandler()
