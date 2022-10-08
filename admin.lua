@@ -97,7 +97,11 @@ local commands = {
             game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, x[math.random(1, #x)])
         end
     end,
-	
+	    antiafk = function()
+        for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
+            v:Disable()
+        end
+    end,
 	clear = rconsoleclear
 }
 
