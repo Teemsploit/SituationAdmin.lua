@@ -82,6 +82,8 @@ commands = {
         )
         rconsoleprint("\n")
     end, 
+	--[[
+	Needs fixing
 	
 	avatar = function(...)
 		local args = {...}
@@ -91,7 +93,7 @@ commands = {
 
 		rconsolewarn('This is client-side only!')
 		rconsoleprint('\n')
-	end, 
+	end, ]]
 	
     serverhop = function(...)
         local x = {}
