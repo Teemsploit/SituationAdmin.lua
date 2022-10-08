@@ -39,12 +39,11 @@ commands = {
 
 		rconsoleprint("Choice: ")
 
-		playerNum = tonumber(rconsoleinput())
-
-		players = game:GetService("Players"):GetPlayers()
+		local playerNum = tonumber(rconsoleinput())
+		local players = Players:GetPlayers()
 
 		if playerNum ~= nil and playerNum > 0 and playerNum <= #players then
-			plrchar = players[playerNum].Character
+			local plrchar = players[playerNum].Character
 
 			getroot(character).CFrame = getroot(plrchar).CFrame
 		else
