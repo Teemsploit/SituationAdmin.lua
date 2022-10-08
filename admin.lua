@@ -66,13 +66,13 @@ local commands = {
         rconsoleprint('\n')
     end,
    
-   
+ --[[  
    avatar = function(args, User)
 				id = args[1]
                 game.Players.LocalPlayer.CharacterAppearance = "https://api.roblox.com/v1.1/avatar-fetch/?".. game.PlaceId .."=0&userId=" .. id
 			rconsolewarn('This is client-side only!')
 			rconsoleprint('\n')
-			end,
+			end, ]]--
     
      --[[
     noclip = Humanoid:ChangeState(11), 
