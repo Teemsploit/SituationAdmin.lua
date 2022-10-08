@@ -2,6 +2,7 @@ if rconsoleprint == nil then
     print("Your exploit is not supported!")
     return
 end
+
 local game = game
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
@@ -24,7 +25,7 @@ local function getroot(char)
 end
 
 local commands = {
-    teleport = function()
+    teleport = function(...)
         for i, plr in ipairs(Players:GetPlayers()) do
             rconsoleprint(i .. ".) " .. plr.Name .. "\n")
         end
@@ -39,11 +40,13 @@ local commands = {
             else ]] getroot(character).CFrame =
             getroot(plrchar).CFrame
         -- end
-    end,
-    bitchcount = function()
+    end, 
+	
+    bitchcount = function(...)
         rconsolewarn("You have " .. math.random(1, 100) .. " bitches")
-    end,
-    btools = function()
+    end, 
+	
+    btools = function(...)
         local backpack = Player.Backpack
 
         hammer = Instance.new("HopperBin")
@@ -60,26 +63,28 @@ local commands = {
         grabTool.Name = "Grab"
         grabTool.BinType = 2
         grabTool.Parent = backpack
-    end,
-    funfact = function()
+    end, 
+	
+    funfact = function(...)
         rconsoleprint(
             game:GetService("HttpService"):JSONDecode(
                 game:HttpGet("https://uselessfacts.jsph.pl/random.json?language=en")
             ).text
         )
         rconsoleprint("\n")
-    end,
-     --
-     --
-    --[[  
-   avatar = function(args, User)
-				id = args[1]
-                game.Players.LocalPlayer.CharacterAppearance = "https://api.roblox.com/v1.1/avatar-fetch/?".. game.PlaceId .."=0&userId=" .. id
-			rconsolewarn('This is client-side only!')
-			rconsoleprint('\n')
-			end, ]] --[[
-    noclip = Humanoid:ChangeState(11), 
-    ]] serverhop = function()
+    end, 
+	
+	avatar = function(...)
+		local args = {...}
+		local id = args[1]
+
+		game.Players.LocalPlayer.CharacterAppearance = "https://api.roblox.com/v1.1/avatar-fetch/?".. game.PlaceId .."=0&userId=" .. id
+
+		rconsolewarn('This is client-side only!')
+		rconsoleprint('\n')
+	end, 
+	
+    serverhop = function(...)
         local x = {}
         for _, v in ipairs(
             game:GetService("HttpService"):JSONDecode(
@@ -95,22 +100,28 @@ local commands = {
         if #x > 0 then
             game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, x[math.random(1, #x)])
         end
-    end,
-    antiafk = function()
+    end, 
+	
+    antiafk = function(...)
         for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
             v:Disable()
         end
-    end,
+    end, 
     
-	 --[[ chat = function(Message)
-		if ReplicatedStorage:FindFirstChild("DefaultChatSystemChatEvents") 
-		then
-		ReplicatedStorage:FindFirstChild("DefaultChatSystemChatEvents").SayMessageRequest:FireServer(Message, "All")
-	else
-		rconsolewarn('It seems this game has a custom chat this command will not work.')
+	chat = function(...)
+		local args = {...}
+		local Message = args[1]
+
+		local storage = game:GetService("ReplicatedStorage")
+
+		if storage:FindFirstChild("DefaultChatSystemChatEvents") then
+			storage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(Message, "All")
+		else
+			rconsolewarn("It seems this game has a custom chat this command will not work.")
 		end
-end,]]
+	end, 
 	
+	noclip = Humanoid:ChangeState(11), 
 	clear = rconsoleclear
 }
 
@@ -118,12 +129,20 @@ function nexthandler()
     rconsoleprint("@@WHITE@@")
     rconsoleprint("Input: ")
 
-    local command = string.lower(rconsoleinput())
-    local getCommand = commands[command]
-    --local args = string.split(command, " ")
+	local args = rconsoleinput()
+	local tokens = {}
 
-    if getCommand then
-        commands[command]()
+	for v in string.gmatch(args, "([^ ]+)") do
+		table.insert(tokens, v)
+	end
+
+	local command = string.lower(tokens[1])
+	local getCommand = commands[command]
+
+	table.remove(tokens, 1)
+
+	if getCommand then
+		commands[command](table.unpack(tokens))
 
         rconsoleprint("@@GREEN@@")
         rconsoleprint("Executed " .. command .. " successfully!\n")
