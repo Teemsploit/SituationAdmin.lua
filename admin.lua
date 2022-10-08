@@ -1,5 +1,5 @@
 if rconsoleprint == nil then
-    error("Your cheat is not supported!")
+    print("Your exploit is not supported!")
     return
 end
 local game = game
