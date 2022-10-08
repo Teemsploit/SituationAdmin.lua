@@ -18,13 +18,8 @@ local function getroot(char)
         char:FindFirstChild("HumanoidRootPart") or char:FindFirstChild("Torso") or char:FindFirstChild("UpperTorso")
     return rpart
 end
---
 
---[[
-You can thank Drqonic for this actual good implementation of commands.
--------------------------------------------------------------------------
-Thank you Drqonic <3
-]] local commands = {
+local commands = {
     teleport = function()
         for i, plr in ipairs(Players:GetPlayers()) do
             rconsoleprint(i .. ".) " .. plr.Name .. "\n")
