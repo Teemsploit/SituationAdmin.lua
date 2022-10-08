@@ -17,14 +17,13 @@ local function getroot(char)
         char:FindFirstChild("HumanoidRootPart") or char:FindFirstChild("Torso") or char:FindFirstChild("UpperTorso")
     return rpart
 end
+--
 
 --[[
 You can thank Drqonic for this actual good implementation of commands.
 -------------------------------------------------------------------------
 Thank you Drqonic <3
-]]--
-
-local commands = {
+]] local commands = {
     teleport = function()
         for i, plr in ipairs(Players:GetPlayers()) do
             rconsoleprint(i .. ".) " .. plr.Name .. "\n")
@@ -41,27 +40,24 @@ local commands = {
         rconsolewarn("You have " .. math.random(1, 100) .. " bitches")
     end,
     btools = function()
-backpack = game:GetService("Players").LocalPlayer.Backpack
+        local backpack = Player.Backpack
 
-hammer = Instance.new("HopperBin")
-hammer.Name = "Hammer"
-hammer.BinType = 4
-hammer.Parent = backpack
+        hammer = Instance.new("HopperBin")
+        hammer.Name = "Hammer"
+        hammer.BinType = 4
+        hammer.Parent = backpack
 
-cloneTool = Instance.new("HopperBin")
-cloneTool.Name = "Clone"
-cloneTool.BinType = 3
-cloneTool.Parent = backpack
+        cloneTool = Instance.new("HopperBin")
+        cloneTool.Name = "Clone"
+        cloneTool.BinType = 3
+        cloneTool.Parent = backpack
 
-grabTool = Instance.new("HopperBin")
-grabTool.Name = "Grab"
-grabTool.BinType = 2
-grabTool.Parent = backpack
-        end,
-    
-	
-	noclip = Player.Character.Humanoid:ChangeState(11),
-	
+        grabTool = Instance.new("HopperBin")
+        grabTool.Name = "Grab"
+        grabTool.BinType = 2
+        grabTool.Parent = backpack
+    end,
+    noclip = Humanoid:ChangeState(11),
     clear = rconsoleclear
 }
 
