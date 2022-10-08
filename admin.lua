@@ -53,7 +53,12 @@ local commands = {
         grabTool.BinType = 2
         grabTool.Parent = backpack
     end,
-   --[[ 
+   
+    funfact = function()
+        rconsoleprint(game:GetService("HttpService"):JSONDecode(game:HttpGet("https://uselessfacts.jsph.pl/random.json?language=en")).text\n)
+        end,
+    
+    --[[ 
     noclip = Humanoid:ChangeState(11), 
     ]]--
     clear = rconsoleclear
