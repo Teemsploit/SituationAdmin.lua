@@ -28,7 +28,7 @@ end
 commands = {
 	help = function(...)
 		for key, value in pairs(commands) do
-			rconsoleprint(key)
+			rconsoleprint(key.. '\n')
 		end
 	end, 
 	
