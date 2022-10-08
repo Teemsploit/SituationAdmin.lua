@@ -1,3 +1,7 @@
+if rconsoleprint == nil then -- Checks if the users exploit has getgenv which is the main component if this script
+    error("Your cheat is not supported!")
+    return
+end
 local game = game
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
@@ -29,8 +33,11 @@ local commands = {
 
         playerNum = tonumber(rconsoleinput())
         plrchar = game:GetService("Players"):GetPlayers()[playerNum].Character
-
+       --[[ if playerNum == nil then
+            nexthandler()
+            else ]]--
         getroot(character).CFrame = getroot(plrchar).CFrame
+       -- end
     end,
     bitchcount = function()
         rconsolewarn("You have " .. math.random(1, 100) .. " bitches")
@@ -55,10 +62,21 @@ local commands = {
     end,
    
     funfact = function()
-        rconsoleprint(game:GetService("HttpService"):JSONDecode(game:HttpGet("https://uselessfacts.jsph.pl/random.json?language=en")).text\n)
-        end,
+        rconsoleprint(game:GetService("HttpService"):JSONDecode(game:HttpGet("https://uselessfacts.jsph.pl/random.json?language=en")).text)
+        rconsoleprint('\n')
+    end,
+   --[[ 
+   
+   idk why but the avatar script doesnt work
+   
+   avatar = function(args, User)
+				id = args[1]
+                game.Players.LocalPlayer.CharacterAppearance = "https://api.roblox.com/v1.1/avatar-fetch/?placeId=0&userId=" .. id
+			rconsolewarn('This is client-side only!')
+			rconsoleprint('\n')
+			end, ]]--
     
-    --[[ 
+     --[[
     noclip = Humanoid:ChangeState(11), 
     ]]--
     clear = rconsoleclear
