@@ -1,4 +1,4 @@
-if rconsoleprint == nil then -- Checks if the users exploit has getgenv which is the main component if this script
+if rconsoleprint == nil then
     error("Your cheat is not supported!")
     return
 end
