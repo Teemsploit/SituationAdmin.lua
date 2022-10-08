@@ -24,7 +24,13 @@ local function getroot(char)
     return rpart
 end
 
-local commands = {
+commands = {
+	help = function(...)
+		for key, value in pairs(commands) do
+			rconsoleprint(key)
+		end
+	end, 
+	
 	teleport = function(...)
 		for i, plr in ipairs(Players:GetPlayers()) do
 			rconsoleprint(i .. ".) " .. plr.Name .. "\n")
