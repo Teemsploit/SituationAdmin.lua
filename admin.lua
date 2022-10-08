@@ -9,8 +9,6 @@ local Title = "Welcome to Situation Admin |"
 local rconsoleclear = rconsoleclear
 local rconsoleprint = rconsoleprint
 local rconsoleinput = rconsoleinput
-local torso = plr.Character.Torso
-local plr = game.Players.LocalPlayer
 
 rconsolename(Title .. " " .. User)
 
@@ -42,7 +40,6 @@ local commands = {
     bitchcount = function()
         rconsolewarn("You have " .. math.random(1, 100) .. " bitches")
     end,
-    
     btools = function()
 backpack = game:GetService("Players").LocalPlayer.Backpack
 
@@ -62,13 +59,8 @@ grabTool.BinType = 2
 grabTool.Parent = backpack
         end,
     
-	blockhead = function()
-		game:GetService("Players").LocalPlayer.Head.Mesh:Destroy()
-		end,
 	
-	noclip = function()
-		game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-		end,
+	noclip = Player.Character.Humanoid:ChangeState(11),
 	
     clear = rconsoleclear
 }
