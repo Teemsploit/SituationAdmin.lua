@@ -101,7 +101,15 @@ local commands = {
             v:Disable()
         end
     end,
-    clear = rconsoleclear
+    
+	 chat = function(Message)
+		if ReplicatedStorage:FindFirstChild("DefaultChatSystemChatEvents") then
+		ReplicatedStorage:FindFirstChild("DefaultChatSystemChatEvents").SayMessageRequest:FireServer(Message, "All")
+	else
+		rconsolewarn('It seems this game has a custom chat this command will not work.')
+	end,
+	
+	clear = rconsoleclear
 }
 
 function nexthandler()
