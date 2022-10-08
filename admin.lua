@@ -33,11 +33,12 @@ local commands = {
 
         playerNum = tonumber(rconsoleinput())
         plrchar = game:GetService("Players"):GetPlayers()[playerNum].Character
-       --[[ if playerNum == nil then
+         --
+        --[[ if playerNum == nil then
             nexthandler()
-            else ]]--
-        getroot(character).CFrame = getroot(plrchar).CFrame
-       -- end
+            else ]] getroot(character).CFrame =
+            getroot(plrchar).CFrame
+        -- end
     end,
     bitchcount = function()
         rconsolewarn("You have " .. math.random(1, 100) .. " bitches")
@@ -60,25 +61,25 @@ local commands = {
         grabTool.BinType = 2
         grabTool.Parent = backpack
     end,
-   
     funfact = function()
-        rconsoleprint(game:GetService("HttpService"):JSONDecode(game:HttpGet("https://uselessfacts.jsph.pl/random.json?language=en")).text)
-        rconsoleprint('\n')
+        rconsoleprint(
+            game:GetService("HttpService"):JSONDecode(
+                game:HttpGet("https://uselessfacts.jsph.pl/random.json?language=en")
+            ).text
+        )
+        rconsoleprint("\n")
     end,
-   
- --[[  
+     --
+     --
+    --[[  
    avatar = function(args, User)
 				id = args[1]
                 game.Players.LocalPlayer.CharacterAppearance = "https://api.roblox.com/v1.1/avatar-fetch/?".. game.PlaceId .."=0&userId=" .. id
 			rconsolewarn('This is client-side only!')
 			rconsoleprint('\n')
-			end, ]]--
-    
-     --[[
+			end, ]] --[[
     noclip = Humanoid:ChangeState(11), 
-    ]]--
-   
-	serverhop = function()
+    ]] serverhop = function()
         local x = {}
         for _, v in ipairs(
             game:GetService("HttpService"):JSONDecode(
@@ -95,12 +96,12 @@ local commands = {
             game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, x[math.random(1, #x)])
         end
     end,
-	    antiafk = function()
+    antiafk = function()
         for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
             v:Disable()
         end
     end,
-	clear = rconsoleclear
+    clear = rconsoleclear
 }
 
 function nexthandler()
