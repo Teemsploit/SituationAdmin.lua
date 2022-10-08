@@ -102,12 +102,14 @@ local commands = {
         end
     end,
     
-	 chat = function(Message)
-		if ReplicatedStorage:FindFirstChild("DefaultChatSystemChatEvents") then
+	 --[[ chat = function(Message)
+		if ReplicatedStorage:FindFirstChild("DefaultChatSystemChatEvents") 
+		then
 		ReplicatedStorage:FindFirstChild("DefaultChatSystemChatEvents").SayMessageRequest:FireServer(Message, "All")
 	else
 		rconsolewarn('It seems this game has a custom chat this command will not work.')
-	end,
+		end
+end,]]
 	
 	clear = rconsoleclear
 }
