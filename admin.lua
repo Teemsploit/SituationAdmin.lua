@@ -44,7 +44,6 @@ local commands = {
     end,
     
     fly = function()
-        --Variables
 local flying = true
 local deb = true
 local ctrl = {f = 0, b = 0, l = 0, r = 0}
@@ -54,7 +53,7 @@ local speed = 0
 local bg = nil
 local bv = nil
 
---Actual flying
+
 function Fly()
     bg = Instance.new("BodyGyro", torso)
     bg.P = 9e4
@@ -96,7 +95,7 @@ function Fly()
     plr.Character.Humanoid.PlatformStand = false
 end
 
---Controls
+
 mouse.KeyDown:connect(function(key)
 	if key:lower() == "e" then
 		if flying then 
