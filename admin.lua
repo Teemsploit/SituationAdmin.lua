@@ -53,7 +53,9 @@ local commands = {
         grabTool.BinType = 2
         grabTool.Parent = backpack
     end,
-    noclip = Humanoid:ChangeState(11),
+   --[[ 
+    noclip = Humanoid:ChangeState(11), 
+    ]]--
     clear = rconsoleclear
 }
 
