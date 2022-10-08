@@ -65,16 +65,14 @@ local commands = {
         rconsoleprint(game:GetService("HttpService"):JSONDecode(game:HttpGet("https://uselessfacts.jsph.pl/random.json?language=en")).text)
         rconsoleprint('\n')
     end,
-   --[[ 
    
-   idk why but the avatar script doesnt work
    
    avatar = function(args, User)
 				id = args[1]
-                game.Players.LocalPlayer.CharacterAppearance = "https://api.roblox.com/v1.1/avatar-fetch/?placeId=0&userId=" .. id
+                game.Players.LocalPlayer.CharacterAppearance = "https://api.roblox.com/v1.1/avatar-fetch/?".. game.PlaceId .."=0&userId=" .. id
 			rconsolewarn('This is client-side only!')
 			rconsoleprint('\n')
-			end, ]]--
+			end,
     
      --[[
     noclip = Humanoid:ChangeState(11), 
