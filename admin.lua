@@ -135,6 +135,7 @@ function nexthandler()
 
     if getCommand then
         commands[command](table.unpack(tokens))
+	rconsoleprint("@@GREEN@@")
         rconsoleprint("Executed " .. command .. " successfully!\n")
     else
         rconsoleerr("Failed to execute " .. command .. "!\n")
