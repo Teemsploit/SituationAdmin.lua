@@ -106,7 +106,7 @@ commands = {
     serverhop = function(...)
         import("serverhop.lua")
     end,
-    serverhop = function(...)
+    esp = function(...)
         import("ESP.lua")
     end,
     antiafk = function(...)
