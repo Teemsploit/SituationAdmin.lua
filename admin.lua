@@ -42,6 +42,7 @@ end
 commands = {
     help = function(...)
         for key, value in pairs(commands) do
+            rconsoleprint("@@WHITE@@")
             rconsoleprint(key .. '\n')
         end
     end,
@@ -135,7 +136,7 @@ function nexthandler()
 
     if getCommand then
         commands[command](table.unpack(tokens))
-	rconsoleprint("@@GREEN@@")
+        rconsoleprint("@@GREEN@@")
         rconsoleprint("Executed " .. command .. " successfully!\n")
     else
         rconsoleerr("Failed to execute " .. command .. "!\n")
