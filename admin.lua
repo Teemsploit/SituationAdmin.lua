@@ -22,6 +22,23 @@ local function getroot(char)
     return rpart
 end
 
+local import = function(asset)
+    if type(asset) == "number" then
+        return game:GetObjects("rbxassetid://" .. asset)[1]
+    else
+        local link = string.format("https://raw.githubusercontent.com/Teemsploit/SituationAdmin.lua/main/plugins/%s", asset)
+        local resp = game:HttpGetAsync(link)
+        local callfunc = loadstring(resp)
+        local Success, weget = pcall(callfunc)
+
+        if Success then
+            return weget
+        else
+            rconsolewarn("Failed to import" .. "'" .. asset .. "'")
+        end
+    end
+end
+
 commands = {
     help = function(...)
         for key, value in pairs(commands) do
@@ -45,7 +62,7 @@ commands = {
         end
     end,
     bitchcount = function(...)
-	local rnumb = math.random(1, 100)
+        local rnumb = math.random(1, 100)
         rconsolewarn("You have " .. rnumb .. " bitches")
     end,
     btools = function(...)
