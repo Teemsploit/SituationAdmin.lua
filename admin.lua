@@ -41,11 +41,12 @@ commands = {
             local plrchar = players[playerNum].Character
             getroot(character).CFrame = getroot(plrchar).CFrame
         else
-            rconsolewarn("Player chosen is invalid\n")
+            rconsolewarn("Player chosen is invalid!\n")
         end
     end,
     bitchcount = function(...)
-        rconsolewarn("You have " .. math.random(1, 100) .. " bitches")
+	local rnumb = math.random(1, 100)
+        rconsolewarn("You have " .. rnumb .. " bitches")
     end,
     btools = function(...)
         local backpack = Player.Backpack
