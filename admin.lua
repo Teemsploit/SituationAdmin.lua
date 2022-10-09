@@ -123,6 +123,12 @@ commands = {
             rconsolewarn("It seems this game has a custom chat this command will not work.")
         end
     end,
+    
+    cocksize = function(...)
+        local rnumb = math.random(1, 600)
+        rconsolewarn("Your cock is " .. rnumb/100 .. " inches.")
+    end,
+    
     noclip = Humanoid:ChangeState(11),
     clear = rconsoleclear
 }
