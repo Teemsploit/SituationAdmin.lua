@@ -42,6 +42,7 @@ end
 commands = {
     help = function(...)
         for key, value in pairs(commands) do
+            rconsoleprint("@@WHITE@@")
             rconsoleprint(key .. '\n')
         end
     end,
@@ -65,37 +66,43 @@ commands = {
         local rnumb = math.random(1, 100)
         rconsolewarn("You have " .. rnumb .. " bitches")
     end,
+    joinlogs = function(...)
+        local args = {...}
+
+        joinlogsenabled = args[1] or not joinlogsenabled
+
+        if joinlogsenabled then
+            joinlogcon = Players.PlayerAdded:Connect(function(plr)
+                rconsoleprint("@@WHITE@@")
+                rconsoleprint("\n" .. plr.Name .. " has joined, account is " .. plr.AccountAge .. " days old!\n")
+            end)
+
+            leavelogcon = Players.PlayerRemoving:Connect(function(plr)
+                rconsoleprint("@@WHITE@@")
+                rconsoleprint("\n" .. plr.Name .. " has left!\n")
+            end)
+        elseif not joinlogsenabled and joinlogcon and leavelogcon then
+            joinlogcon = joinlogcon:Disconnect()
+            leavelogcon = leavelogcon:Disconnect()
+        end
+    end,
     btools = function(...)
-        local backpack = Player.Backpack
-        hammer = Instance.new("HopperBin")
-        hammer.Name = "Hammer"
-        hammer.BinType = 4
-        hammer.Parent = backpack
-        cloneTool = Instance.new("HopperBin")
-        cloneTool.Name = "Clone"
-        cloneTool.BinType = 3
-        cloneTool.Parent = backpack
-        grabTool = Instance.new("HopperBin")
-        grabTool.Name = "Grab"
-        grabTool.BinType = 2
-        grabTool.Parent = backpack
+        import("btools.lua")
     end,
     funfact = function(...)
         rconsoleprint(game:GetService("HttpService"):JSONDecode(game:HttpGet("https://uselessfacts.jsph.pl/random.json?language=en")).text)
         rconsoleprint("\n")
     end,
         --[[
-	Needs fixing
-	
-	avatar = function(...)
-		local args = {...}
-		local id = args[1]
+    avatar = function(...)
+        local args = {...}
 
-		game.Players.LocalPlayer.CharacterAppearance = "https://api.roblox.com/v1.1/avatar-fetch/?".. game.PlaceId .."=0&userId=" .. id
-
-		rconsolewarn('This is client-side only!')
-		rconsoleprint('\n')
-	end, ]]
+        local id = args[1]
+        local newmodel = Players:GetCharacterAppearanceAsync(id)
+        character = newmodel
+        rconsolewarn("This is client-side only!\n")
+    end,
+  ]]--
     serverhop = function(...)
         import("serverhop.lua")
     end,
@@ -121,6 +128,7 @@ commands = {
 }
 
 function nexthandler()
+    rconsoleprint("@@WHITE@@")
     rconsoleprint("Input: ")
     local args = rconsoleinput()
     local tokens = {}
@@ -135,6 +143,7 @@ function nexthandler()
 
     if getCommand then
         commands[command](table.unpack(tokens))
+        rconsoleprint("@@GREEN@@")
         rconsoleprint("Executed " .. command .. " successfully!\n")
     else
         rconsoleerr("Failed to execute " .. command .. "!\n")
