@@ -1,6 +1,8 @@
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
 if rconsoleprint == nil then
-    print("Your exploit is not supported!")
-	
+    print("Your exploit is not supported!")	
     return
 end
 
