@@ -46,7 +46,17 @@ commands = {
             rconsoleprint(key .. '\n')
         end
     end,
-    deletetouchinterests = function(...)
+    lagserver = function(...)
+		for _,v in pairs(getconnections(game:GetService("ScriptContext").Error)) do
+   v:Disable()
+end
+
+local v =96000000
+local msg = ""..string.rep(" ",(v - 12))
+for i=1,7 do
+game.Players:Chat(msg)
+end,
+	deletetouchinterests = function(...)
     for _, v in ipairs(workspace:GetDescendants()) do
 	            	if v.IsA(v, "TouchTransmitter") then
 		            	v:Destroy()
