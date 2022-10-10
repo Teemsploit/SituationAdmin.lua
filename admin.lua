@@ -54,7 +54,7 @@ commands = {
             	end
 end,
     --[[
-    Not tested
+    --NOT TESTED
     vehiclespeed = function(...)
      local seat = Player.SeatPart
         local args = {...}
