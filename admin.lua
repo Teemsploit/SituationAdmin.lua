@@ -93,7 +93,21 @@ commands = {
         rconsoleprint(game:GetService("HttpService"):JSONDecode(game:HttpGet("https://uselessfacts.jsph.pl/random.json?language=en")).text)
         rconsoleprint("\n")
     end,
-        --[[
+    walkspeed = function(...)
+    local args = {...}
+    local ws = args[1]
+Humanoid.WalkSpeed = ws
+    end,
+        jumppower  = function(...)
+    local args = {...}
+    local jp = args[1]
+Humanoid.JumpPower = jp
+    end,
+           hipheight  = function(...)
+    local args = {...}
+    local hh = args[1]
+Humanoid.HipHeight = hh
+    end,
     avatar = function(...)
         local args = {...}
 
@@ -102,7 +116,6 @@ commands = {
         character = newmodel
         rconsolewarn("This is client-side only!\n")
     end,
-  ]]--
     serverhop = function(...)
         import("serverhop.lua")
     end,
