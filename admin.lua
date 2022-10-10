@@ -52,7 +52,6 @@ commands = {
 		            	v:Destroy()
 	            	end
             	end
-            end
 end,
     --[[
     Not tested
