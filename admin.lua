@@ -46,6 +46,47 @@ commands = {
             rconsoleprint(key .. '\n')
         end
     end,
+    deletetouchinterests = function(...)
+    for _, v in ipairs(workspace:GetDescendants()) do
+	            	if v.IsA(v, "TouchTransmitter") then
+		            	v:Destroy()
+	            	end
+            	end
+            end
+end,
+    --[[
+    Not tested
+    vehiclespeed = function(...)
+     local seat = Player.SeatPart
+        local args = {...}
+        local speed = args[1]
+                if tonumber(args[1]) and seat and seat:IsA("VehicleSeat") then
+                    seat.MaxSpeed = tonumber(args[1])
+                end
+            end
+    end,
+    ]]
+    spoofmemory = function(...)
+        hookfunction((gcinfo or collectgarbage), function(...)
+   return math.random(200,350)
+end)
+task.wait(0.01)
+local gamemt = getrawmetatable(game)
+setreadonly(gamemt, false)
+local nc = gamemt.__namecall
+
+gamemt.__namecall = newcclosure(function(...)
+  if (getnamecallmethod() == 'GetTotalMemoryUsageMb') then
+    return math.random(395, 405)
+  end
+  return nc(...)
+end)
+
+hookfunction(game.Stats.GetTotalMemoryUsageMb, function() return math.random(395, 405) end)
+task.wait()
+rconsoleprint("Memory Spoofed!")
+            end
+        end,
     teleport = function(...)
         for i, plr in ipairs(Players:GetPlayers()) do
             rconsoleprint(i .. ".) " .. plr.Name .. "\n")
