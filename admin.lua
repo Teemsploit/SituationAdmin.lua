@@ -50,11 +50,16 @@ commands = {
 		for _,v in pairs(getconnections(game:GetService("ScriptContext").Error)) do
    v:Disable()
 end
-
+local storage = game:GetService("ReplicatedStorage")
 local v =96000000
 local msg = ""..string.rep(" ",(v - 12))
 for i=1,7 do
-game.Players:Chat(msg)
+
+        if storage:FindFirstChild("DefaultChatSystemChatEvents") then
+            storage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(msg, "All")
+        else
+            rconsolewarn("It seems this game has a custom chat this command will not work.")
+        end
 end
 end,
 	deletetouchinterests = function(...)
