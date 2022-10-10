@@ -55,6 +55,7 @@ local v =96000000
 local msg = ""..string.rep(" ",(v - 12))
 for i=1,7 do
 game.Players:Chat(msg)
+end
 end,
 	deletetouchinterests = function(...)
     for _, v in ipairs(workspace:GetDescendants()) do
@@ -106,8 +107,8 @@ end)
 hookfunction(game.Stats.GetTotalMemoryUsageMb, function() return math.random(395, 405) end)
 task.wait()
 rconsoleprint("Memory Spoofed!")
-            end
-        end,
+            end,
+        
     teleport = function(...)
         for i, plr in ipairs(Players:GetPlayers()) do
             rconsoleprint(i .. ".) " .. plr.Name .. "\n")
