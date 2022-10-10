@@ -53,6 +53,18 @@ commands = {
 	            	end
             	end
 end,
+	networkownership = function(...)
+		local function network()
+    local Render = game:GetService("RunService").RenderStepped
+    local Huge = math.huge*math.huge
+    local BigHuge = math.pow(math.huge,math.huge)
+    Render:Connect(function()
+        sethiddenproperty(Player,'MaximumSimulationRadius',BigHuge)
+        sethiddenproperty(Player,'SimulationRadius',Huge)
+    end)
+end
+network()
+			end,
     --[[
     --NOT TESTED
     vehiclespeed = function(...)
