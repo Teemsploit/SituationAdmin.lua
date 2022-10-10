@@ -106,7 +106,7 @@ end)
 
 hookfunction(game.Stats.GetTotalMemoryUsageMb, function() return math.random(395, 405) end)
 task.wait()
-rconsoleprint("Memory Spoofed!")
+rconsoleprint("Memory Spoofed! \n")
             end,
         
     teleport = function(...)
