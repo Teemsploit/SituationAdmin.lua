@@ -3,18 +3,13 @@ if not game:IsLoaded() then
 end
 
 assert(rconsoleprint, "Your exploit is not supported!")
-local game = game
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 local character = Player.Character
 local Humanoid = character:WaitForChild("Humanoid")
 local User = Player.Name
-local Title = "Welcome to Situation Admin |"
-local rconsoleclear = rconsoleclear
-local rconsoleprint = rconsoleprint
-local rconsoleinput = rconsoleinput
-local string = string
-rconsolename(Title .. " " .. User)
+
+rconsolename("Welcome to Situation Admin | " .. User)
 
 local function getroot(char)
 	local rpart = char:FindFirstChild("HumanoidRootPart") or char:FindFirstChild("Torso") or char:FindFirstChild("UpperTorso")
@@ -201,8 +196,9 @@ commands = {
 		local rnumb = math.random(1, 600)
 		rconsolewarn("Your cock is " .. rnumb / 100 .. " inches.")
 	end,
-    
-    noclip = Humanoid:ChangeState(11),
+    --[[
+	Wont Work
+    noclip = Humanoid:ChangeState(11), ]]
     clear = rconsoleclear}
 
 function nexthandler()
