@@ -12,11 +12,6 @@ local Player = Players.LocalPlayer
 local character = Player.Character
 local Humanoid = character:WaitForChild("Humanoid")
 local User = Player.Name
-local backpack = Player.Backpack
-local httpservice = httpservice
-local pid = game.PlaceId
-local jid = game.JobId
-local teleportservice = game:GetService("TeleportService")
 
 rconsolename("Welcome to Situation Admin | " .. User)
 
