@@ -57,9 +57,11 @@ commands = {
 		for _, v in pairs(getconnections(game:GetService("ScriptContext").Error)) do
 			v:Disable()
 		end
+		
 		local storage = game:GetService("ReplicatedStorage")
 		local v = 96000000
 		local msg = "" .. string.rep(" ", (v - 12))
+		
 		for i = 1, 7 do
 			if storage:FindFirstChild("DefaultChatSystemChatEvents") then
 				storage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(msg, "All")
@@ -162,17 +164,17 @@ commands = {
 		local Player = Players.LocalPlayer
 		local backpack = Player.Backpack
 
-		hammer = Instance.new("HopperBin")
+		local hammer = Instance.new("HopperBin")
 		hammer.Name = "Hammer"
 		hammer.BinType = 4
 		hammer.Parent = backpack
 
-		cloneTool = Instance.new("HopperBin")
+		local cloneTool = Instance.new("HopperBin")
 		cloneTool.Name = "Clone"
 		cloneTool.BinType = 3
 		cloneTool.Parent = backpack
 
-		grabTool = Instance.new("HopperBin")
+		local grabTool = Instance.new("HopperBin")
 		grabTool.Name = "Grab"
 		grabTool.BinType = 2
 		grabTool.Parent = backpack
