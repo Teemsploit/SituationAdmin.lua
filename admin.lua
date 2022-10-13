@@ -283,17 +283,19 @@ while task.wait() do
 		table.insert(tokens, v)
 	end
 
-	local command = string.lower(tokens[1])
-	local getCommand = commands[command]
+	if tokens[1] ~= nil then
+		local command = string.lower(tokens[1])
+		local getCommand = commands[command]
 
-	table.remove(tokens, 1)
+		table.remove(tokens, 1)
 
-	if getCommand then
-		commands[command](table.unpack(tokens))
-	
-		rconsoleprint("@@GREEN@@")
-		rconsoleprint("Executed " .. command .. " successfully!\n")
-	else
-		rconsoleerr("Failed to execute " .. command .. "!\n")
+		if getCommand then
+			commands[command](table.unpack(tokens))
+
+			rconsoleprint("@@GREEN@@")
+			rconsoleprint("Executed " .. command .. " successfully!\n")
+		else
+			rconsoleerr("Failed to execute " .. command .. "!\n")
+		end
 	end
 end
