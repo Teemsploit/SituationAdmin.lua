@@ -286,10 +286,14 @@ while task.wait() do
 		table.remove(tokens, 1)
 
 		if getCommand then
-			commands[command](table.unpack(tokens))
+			local success = pcall(commands[command], table.unpack(tokens))
 
-			rconsoleprint("@@GREEN@@")
-			rconsoleprint("Executed " .. command .. " successfully!\n")
+			if success then
+				rconsoleprint("@@GREEN@@")
+				rconsoleprint("Executed " .. command .. " successfully!\n")
+			else
+				rconsoleerr("An error occurred while running " .. command .. "\n")
+			end
 		else
 			rconsoleerr("Failed to execute " .. command .. "!\n")
 		end
