@@ -5,6 +5,7 @@ end
 
 assert(rconsoleprint, "Your exploit is not supported!")
 assert(fireproximityprompt, "Your exploit is not supported!")
+assert(hookfunction, "Your exploit is not supported!")
 
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
