@@ -1,3 +1,10 @@
+--[[
+REMOVE ME
+
+colours do not work in script-ware
+]]
+
+
 if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
@@ -35,7 +42,7 @@ end
 commands = {
     help = function(...)
 		for key, value in pairs(commands) do
-			rconsoleprint("@@WHITE@@")
+			
 			rconsoleprint(key .. '\n')
 		end
 	end,
@@ -109,8 +116,7 @@ commands = {
 		end
 	end,
     bitchcount = function(...)
-		local rnumb = math.random(1, 100)
-		rconsolewarn("You have " .. rnumb .. " bitches")
+		rconsolewarn("You have " .. math.random(1, 100) .. " bitches")
 	end,
     joinlogs = function(...)
 		local args = {
@@ -119,11 +125,11 @@ commands = {
 		joinlogsenabled = args[1] or not joinlogsenabled
 		if joinlogsenabled then
 			joinlogcon = Players.PlayerAdded:Connect(function(plr)
-				rconsoleprint("@@WHITE@@")
+		
 				rconsoleprint("\n" .. plr.Name .. " has joined, account is " .. plr.AccountAge .. " days old!\n")
 			end)
 			leavelogcon = Players.PlayerRemoving:Connect(function(plr)
-				rconsoleprint("@@WHITE@@")
+			
 				rconsoleprint("\n" .. plr.Name .. " has left!\n")
 			end)
 		elseif not joinlogsenabled and joinlogcon and leavelogcon then
@@ -202,7 +208,7 @@ commands = {
     clear = rconsoleclear}
 
 function nexthandler()
-	rconsoleprint("@@WHITE@@")
+	
 	rconsoleprint("Input: ")
 	local args = rconsoleinput()
 	local tokens = {}
@@ -214,7 +220,7 @@ function nexthandler()
 	table.remove(tokens, 1)
 	if getCommand then
 		commands[command](table.unpack(tokens))
-		rconsoleprint("@@GREEN@@")
+		
 		rconsoleprint("Executed " .. command .. " successfully!\n")
 	else
 		rconsoleerr("Failed to execute " .. command .. "!\n")
