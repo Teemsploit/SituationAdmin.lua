@@ -242,7 +242,7 @@ commands = {
 	end,
 	
 	antiafk = function(...)
-		for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
+		for i, v in pairs(getconnections(Players.LocalPlayer.Idled)) do
 			v:Disable()
 		end
 	end,
