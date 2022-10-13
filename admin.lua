@@ -12,6 +12,11 @@ local Player = Players.LocalPlayer
 local character = Player.Character
 local Humanoid = character:WaitForChild("Humanoid")
 local User = Player.Name
+local backpack = Player.Backpack
+local httpservice = httpservice
+local pid = game.PlaceId
+local jid = game.JobId
+local teleportservice = game:GetService("TeleportService")
 
 rconsolename("Welcome to Situation Admin | " .. User)
 
@@ -43,6 +48,22 @@ commands = {
 			rconsoleprint(key .. '\n')
 		end
 	end,
+	
+	btools = function(...)
+    hammer = Instance.new("HopperBin")
+    hammer.Name = "Hammer"
+    hammer.BinType = 4
+    hammer.Parent = backpack
+    cloneTool = Instance.new("HopperBin")
+    cloneTool.Name = "Clone"
+    cloneTool.BinType = 3
+    cloneTool.Parent = backpack
+    grabTool = Instance.new("HopperBin")
+    grabTool.Name = "Grab"
+    grabTool.BinType = 2
+    grabTool.Parent = backpack
+end,
+	
 	noproximitycooldown = function(...)
 		
 		game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(fireproximityprompt)
@@ -156,12 +177,8 @@ end
 		end
 	end,
 	
-    btools = function(...)
-		import("btools.lua")
-	end,
-	
     funfact = function(...)
-		rconsoleprint(game:GetService("HttpService"):JSONDecode(game:HttpGet("https://uselessfacts.jsph.pl/random.json?language=en")).text .. "\n")
+		rconsoleprint(httpservice:JSONDecode(game:HttpGet("https://uselessfacts.jsph.pl/random.json?language=en")).text .. "\n")
 	end,
 	
     walkspeed = function(...)
@@ -196,7 +213,24 @@ end
 	end,
 	
     serverhop = function(...)
-		import("serverhop.lua")
+		local x = {}
+local httpservice = httpservice
+local pid = game.PlaceId
+local jid = game.JobId
+local teleportservice = game:GetService("TeleportService")
+
+for _, v in ipairs(httpservice:JSONDecode(game:HttpGetAsync("htteleportservice://games.roblox.com/v1/games/" .. pid .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
+    
+    --[[ method is slow ]]
+    
+    if type(v) == "table" and v.maxPlayers > v.playing and v.id ~= jid then
+        x[#x + 1] = v.id
+    end
+end
+
+if #x > 0 then
+    teleportservice:TeleportToPlaceInstance(pid, x[math.random(1, #x)])
+end
 	end,
 	
     esp = function(...)
