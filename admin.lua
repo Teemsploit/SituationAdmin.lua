@@ -4,6 +4,7 @@ if not game:IsLoaded() then
 end
 
 assert(rconsoleprint, "Your exploit is not supported!")
+assert(fireproximityprompt, "Your exploit is not supported!")
 
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
@@ -41,7 +42,14 @@ commands = {
 			rconsoleprint(key .. '\n')
 		end
 	end,
-	
+	noproximitycooldown = function(...)
+		
+		game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(fireproximityprompt)
+		end,
+
+for _, v in pairs(workspace:GetDescendants()) do
+    check(v)
+end
     lagserver = function(...)
 		for _, v in pairs(getconnections(game:GetService("ScriptContext").Error)) do
 			v:Disable()
