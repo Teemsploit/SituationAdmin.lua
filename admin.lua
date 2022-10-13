@@ -205,6 +205,7 @@ commands = {
     --[[
 	Wont Work
     noclip = Humanoid:ChangeState(11), ]]
+    fly = import('fly.lua')
     clear = rconsoleclear}
 
 function nexthandler()
