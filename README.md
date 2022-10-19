@@ -5,7 +5,6 @@ May not work on other executors.<br>
 you can get Synapse X at https://x.synapse.to/<br>
 you can get script-ware at https://script-ware.com/<br>
 </p>
-# How to add plugins to situation admin
 <hr>
 <p>
 A folder named "situation_plugins" will be created upon execution.<br>
