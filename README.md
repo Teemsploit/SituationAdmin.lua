@@ -6,6 +6,7 @@ you can get Synapse X at https://x.synapse.to/<br>
 you can get script-ware at https://script-ware.com/<br>
 </p>
 <hr>
+# How to add plugins to situation admin
 <p>
 A folder named "situation_plugins" will be created upon execution.<br>
 To create a plugin you will need to create a new file as <command_name>.lua such as "help.lua".<br>
