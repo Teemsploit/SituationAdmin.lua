@@ -1,8 +1,9 @@
--- Ionized is a skid
+--[[ 
+Not needed as the console is loaded separately from the game therefore waiting for the game to load doesnt affect this script
 if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
-
+]]
 assert(rconsoleprint, "Your exploit is not supported!")
 assert(fireproximityprompt, "Your exploit is not supported!")
 assert(hookfunction, "Your exploit is not supported!")
@@ -54,7 +55,8 @@ commands = {
 		end
 		
 		local storage = game:GetService("ReplicatedStorage")
-		local v = 96000000
+		--local v = 96000000 -- why not math.huge
+		local v = math.huge
 		local msg = "" .. string.rep(" ", (v - 12))
 		
 		for i = 1, 7 do
@@ -285,7 +287,11 @@ while task.wait() do
 
 	if tokens[1] ~= nil then
 		local command = string.lower(tokens[1])
-		local getCommand = commands[command]
+		--[[ 
+			why???
+			local getCommand = commands[command]
+			]]
+			local getCommand = commands.command
 
 		table.remove(tokens, 1)
 
