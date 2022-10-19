@@ -119,7 +119,7 @@ commands = {
 			return math.random(395, 405)
 		end)
 		
-		rconsoleprint("Memory Spoofed! \n")
+		rconsoleprint("Memory Spoofed!\n")
 	end, 
 	
 	teleport = function(...)
