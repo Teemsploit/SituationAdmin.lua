@@ -26,10 +26,10 @@ local import = function(asset)
 	else
 		local link = string.format("https://raw.githubusercontent.com/Teemsploit/SituationAdmin.lua/main/plugins/%s", asset)
 		local resp = game:HttpGetAsync(link)
-		local callfunc = loadstring(resp)
-		local Success, weget = pcall(callfunc)
+		local call = loadstring(resp)
+		local success, weget = pcall(call)
 
-		if Success then
+		if success then
 			return weget
 		else
 			rconsolewarn("Failed to import" .. "'" .. asset .. "'")
