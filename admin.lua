@@ -14,25 +14,30 @@ local character = Player.Character
 local Humanoid = character:WaitForChild("Humanoid")
 local User = Player.Name
 
+local plugins_directory = "situation_plugins"
+
 rconsolename("Welcome to Situation Admin | " .. User)
 
 local function getroot(char)
 	return char:FindFirstChild("HumanoidRootPart") or char:FindFirstChild("Torso") or char:FindFirstChild("UpperTorso")
 end
 
-local import = function(asset)
-	if type(asset) == "number" then
-		return game:GetObjects("rbxassetid://" .. asset)[1]
-	else
-		local link = string.format("https://raw.githubusercontent.com/Teemsploit/SituationAdmin.lua/main/plugins/%s", asset)
-		local resp = game:HttpGetAsync(link)
-		local call = loadstring(resp)
-		local success, weget = pcall(call)
+local function load_plugins()
+	if isfolder(plugins_directory) == false then
+		makefolder(plugins_directory)
+	end
 
-		if success then
-			return weget
-		else
-			rconsolewarn("Failed to import" .. "'" .. asset .. "'")
+	local files = listfiles(plugins_directory)
+
+	for key, value in pairs(files) do
+		local file = value:match("[^\\^/]*.lua$")
+
+		if file ~= nil then
+			local filename = file:sub(0, #file-4)
+
+			local call = loadstring(readfile(value))
+
+			commands[filename] = call
 		end
 	end
 end
@@ -274,6 +279,8 @@ commands = {
 	clear = rconsoleclear
 }
 
+load_plugins()
+
 while task.wait() do
 	rconsoleprint("@@WHITE@@")
 	rconsoleprint("Input: ")
@@ -286,6 +293,8 @@ while task.wait() do
 	end
 
 	if tokens[1] ~= nil then
+		load_plugins()
+
 		local command = string.lower(tokens[1])
 		local getCommand = commands[command]
 
