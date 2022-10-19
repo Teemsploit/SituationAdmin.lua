@@ -149,12 +149,12 @@ commands = {
 		if joinlogsenabled then
 			joinlogcon = Players.PlayerAdded:Connect(function(plr)
 				rconsoleprint("@@WHITE@@")
-				rconsoleprint("\n" .. plr.Name .. " has joined, account is " .. plr.AccountAge .. " days old!\n")
+				rconsoleprint("\n" .. plr.Name .. " has joined, account is " .. plr.AccountAge .. " days old!\nInput: ")
 			end)
 			
 			leavelogcon = Players.PlayerRemoving:Connect(function(plr)
 				rconsoleprint("@@WHITE@@")
-				rconsoleprint("\n" .. plr.Name .. " has left!\n")
+				rconsoleprint("\n" .. plr.Name .. " has left!\nInput: ")
 			end)
 		elseif not joinlogsenabled and joinlogcon and leavelogcon then
 			joinlogcon = joinlogcon:Disconnect()
