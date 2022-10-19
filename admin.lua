@@ -42,11 +42,11 @@ commands = {
 			rconsoleprint("@@WHITE@@")
 			rconsoleprint(key .. '\n')
 		end
-	end,
+	end, 
 
 	noproximitycooldown = function(...)
 		game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(fireproximityprompt)
-	end,
+	end, 
 
 	lagserver = function(...)
 		for _, v in pairs(getconnections(game:GetService("ScriptContext").Error)) do
@@ -64,15 +64,17 @@ commands = {
 				rconsolewarn("It seems this game has a custom chat this command will not work.")
 			end
 		end
-	end,
+	end, 
 	
 	day = function(...)
 		lighting = game:GetService("Lighting")
-if lighting.TimeOfDay == "00:00:00" then
-    lighting.TimeOfDay = 11
-else 
-    lighting.TimeOfDay = 24
-end,
+
+		if lighting.TimeOfDay == "00:00:00" then
+			lighting.TimeOfDay = 11
+		else 
+			lighting.TimeOfDay = 24
+		end
+	end, 
 	
 	deletetouchinterests = function(...)
 		for _, v in ipairs(workspace:GetDescendants()) do
@@ -80,7 +82,7 @@ end,
 				v:Destroy()
 			end
 		end
-	end,
+	end, 
 	
 	networkownership = function(...)
 		local Render = game:GetService("RunService").RenderStepped
@@ -91,7 +93,7 @@ end,
 			sethiddenproperty(Player, 'MaximumSimulationRadius', BigHuge)
 			sethiddenproperty(Player, 'SimulationRadius', Huge)
 		end)
-	end,
+	end, 
 	
 	spoofmemory = function(...)
 		hookfunction((gcinfo or collectgarbage), function(...)
@@ -117,7 +119,7 @@ end,
 		end)
 		
 		rconsoleprint("Memory Spoofed! \n")
-	end,
+	end, 
 	
 	teleport = function(...)
 		for i, plr in ipairs(Players:GetPlayers()) do
@@ -136,11 +138,11 @@ end,
 		else
 			rconsolewarn("Player chosen is invalid!\n")
 		end
-	end,
+	end, 
 	
 	bitchcount = function(...)
 		rconsolewarn("You have " .. math.random(1, 100) .. " bitches")
-	end,
+	end, 
 	
 	joinlogs = function(...)
 		local args = {...}
@@ -162,7 +164,7 @@ end,
 			joinlogcon = joinlogcon:Disconnect()
 			leavelogcon = leavelogcon:Disconnect()
 		end
-	end,
+	end, 
 	
 	btools = function(...)
 		local Player = Players.LocalPlayer
@@ -182,32 +184,32 @@ end,
 		grabTool.Name = "Grab"
 		grabTool.BinType = 2
 		grabTool.Parent = backpack
-	end,
+	end, 
 	
 	funfact = function(...)
 		rconsoleprint(game:GetService("HttpService"):JSONDecode(game:HttpGet("https://uselessfacts.jsph.pl/random.json?language=en")).text .. "\n")
-	end,
+	end, 
 	
 	walkspeed = function(...)
 		local args = {...}
 		local ws = args[1]
 		
 		Humanoid.WalkSpeed = ws
-	end,
+	end, 
 	
 	jumppower  = function(...)
 		local args = {...}
 		local jp = args[1]
 		
 		Humanoid.JumpPower = jp
-	end,
+	end, 
 	
 	hipheight  = function(...)
 		local args = {...}
 		local hh = args[1]
 		
 		Humanoid.HipHeight = hh
-	end,
+	end, 
 	
 	avatar = function(...)
 		local args = {...}
@@ -217,7 +219,7 @@ end,
 		character = newmodel
 		
 		rconsolewarn("This is client-side only!\n")
-	end,
+	end, 
 	
 	serverhop = function(...)
 		local x = {}
@@ -238,17 +240,17 @@ end,
 		if #x > 0 then
 		    tps:TeleportToPlaceInstance(pid, x[math.random(1, #x)])
 		end
-	end,
+	end, 
 	
 	esp = function(...)
 		loadstring(game:GetObjects("rbxassetid://10342057499")[1].Source)()
-	end,
+	end, 
 	
 	antiafk = function(...)
 		for i, v in pairs(getconnections(Players.LocalPlayer.Idled)) do
 			v:Disable()
 		end
-	end,
+	end, 
 	
 	chat = function(...)
 		local args = {...}
@@ -260,11 +262,11 @@ end,
 		else
 			rconsolewarn("It seems this game has a custom chat this command will not work.\n")
 		end
-	end,
+	end, 
 	
 	cocksize = function(...)
 		rconsolewarn("Your cock is " .. math.random(1, 600) / 100 .. " inches.")
-	end,
+	end, 
 	--[[
 	Wont Work
 	noclip = Humanoid:ChangeState(11), 
