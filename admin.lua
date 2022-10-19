@@ -7,6 +7,7 @@ assert(rconsoleprint, "Your exploit is not supported!")
 assert(fireproximityprompt, "Your exploit is not supported!")
 assert(hookfunction, "Your exploit is not supported!")
 
+local HttpService = game:GetService("HttpService");
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 local character = Player.Character
@@ -187,7 +188,7 @@ commands = {
 	end, 
 	
 	funfact = function(...)
-		rconsoleprint(game:GetService("HttpService"):JSONDecode(game:HttpGet("https://uselessfacts.jsph.pl/random.json?language=en")).text .. "\n")
+		rconsoleprint(HttpService:JSONDecode(game:HttpGet("https://uselessfacts.jsph.pl/random.json?language=en")).text .. "\n")
 	end, 
 	
 	walkspeed = function(...)
@@ -223,12 +224,11 @@ commands = {
 	
 	serverhop = function(...)
 		local x = {}
-		local http = game:GetService("HttpService")
 		local pid = game.PlaceId
 		local jid = game.JobId
 		local tps = game:GetService("TeleportService")
 
-		for _, v in ipairs(http:JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. pid .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
+		for _, v in ipairs(HttpService:JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. pid .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
 		    
 		    --[[ method is slow ]]
 		    
