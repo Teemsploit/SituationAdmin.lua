@@ -86,17 +86,6 @@ end,
 		end
 	end, 
 	
-	networkownership = function(...)
-		local Render = game:GetService("RunService").RenderStepped
-		local Huge = math.huge * math.huge
-		local BigHuge = math.pow(math.huge, math.huge)
-		
-		Render:Connect(function()
-			sethiddenproperty(Player, 'MaximumSimulationRadius', BigHuge)
-			sethiddenproperty(Player, 'SimulationRadius', Huge)
-		end)
-	end, 
-	
 	spoofmemory = function(...)
 		hookfunction((gcinfo or collectgarbage), function(...)
 			return math.random(200, 350)
