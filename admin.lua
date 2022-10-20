@@ -3,6 +3,8 @@ if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
 
+messagebox('Please note "Situation admin" is in beta and you may experience bugs.\nType "help" in the console for a list of commands\nif you need further support please join the discord server https://discord.gg/5VAKhPQh8Z\nCredits:\nTeem\nDrqonic\nionized particle/AtpZombie42\nHoppingShark1437','Situation Admin',0)
+
 assert(rconsoleprint, "Your exploit is not supported!")
 assert(fireproximityprompt, "Your exploit is not supported!")
 assert(hookfunction, "Your exploit is not supported!")
@@ -46,7 +48,7 @@ commands = {
 	help = function(...)
 		for key, value in pairs(commands) do
 			rconsoleprint("@@WHITE@@")
-			rconsoleprint(key .. '\n')
+			rconsoleprint(key .. ',\n')
 		end
 	end, 
 
