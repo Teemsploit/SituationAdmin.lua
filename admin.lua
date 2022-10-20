@@ -4,10 +4,13 @@ if not game:IsLoaded() then
 end
 
 messagebox('Please note "Situation admin" is in beta and you may experience bugs.\nType "help" in the console for a list of commands\nif you need further support please join the discord server https://discord.gg/5VAKhPQh8Z\nCredits:\nTeem\nDrqonic\nionized particle/AtpZombie42\nHoppingShark1437', 'Situation Admin', 0)
+
+
+
 -- by clicking 'OK' you have signed your soul over to Teem
+
 assert(rconsoleprint, "Your exploit is not supported!")
 assert(fireproximityprompt, "Your exploit is not supported!")
-assert(hookfunction, "Your exploit is not supported!")
 
 local HttpService = game:GetService("HttpService");
 local Players = game:GetService("Players")
@@ -22,6 +25,15 @@ rconsolename("Welcome to Situation Admin | " .. User)
 
 local function getroot(char)
 	return char:FindFirstChild("HumanoidRootPart") or char:FindFirstChild("Torso") or char:FindFirstChild("UpperTorso")
+end
+
+local hookfunction = hookfunction or function(func, newfunc, applycclosure)
+	if replaceclosure then
+		replaceclosure(func, newfunc)
+		return func
+	end
+	func = applycclosure and (newcclosure or function(f) return f end) or newfunc
+	return func
 end
 
 local function load_plugins()
