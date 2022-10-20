@@ -264,8 +264,6 @@ commands = {
 	clear = rconsoleclear
 }
 
-load_plugins()
-
 while task.wait() do
 	rconsoleprint("@@WHITE@@")
 	rconsoleprint("Input: ")
