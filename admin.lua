@@ -9,6 +9,7 @@ messagebox('Please note "Situation admin" is in beta and you may experience bugs
 -- by clicking 'OK' you have signed your soul over to Teem
 assert(rconsoleprint, "Your exploit is not supported!")
 assert(fireproximityprompt, "Your exploit is not supported!")
+assert(getgenv, "Your exploit is not supported!")
 
 local HttpService = game:GetService("HttpService");
 local Players = game:GetService("Players")
