@@ -50,6 +50,12 @@ commands = {
 		end
 	end, 
 
+supportserver = function(...)
+rconsoleprint("https://discord.gg/aK6k4HKKjb\n Server link has been copied to your clipboard.\n")
+
+setclipboard("https://discord.gg/aK6k4HKKjb")  
+end,
+
 	noproximitycooldown = function(...)
 		game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(fireproximityprompt)
 	end, 
