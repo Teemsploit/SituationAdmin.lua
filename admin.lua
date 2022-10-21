@@ -13,7 +13,8 @@ messagebox([['Please note "Situation admin" is in beta and you may experience bu
 	Drqonic\n
 	Ionized particle/AtpZombie42\n
 	HoppingShark1437\n
-	Toon',
+	Toon\n
+	Neatdev',
 	'Situation Admin',
 	0]])
 -- by clicking 'OK' you have signed your soul over to Teem
