@@ -214,9 +214,6 @@ commands = {
 		local tps = game:GetService("TeleportService")
 
 		for _, v in ipairs(HttpService:JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. pid .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
-		    
-		    --[[ method is slow ]]
-		    
 		    if type(v) == "table" and v.maxPlayers > v.playing and v.id ~= jid then
 		        x[#x + 1] = v.id
 		    end
@@ -278,10 +275,10 @@ while task.wait() do
 				rconsoleprint("@@GREEN@@")
 				rconsoleprint("Executed " .. command .. " successfully!\n")
 			else
-				rconsoleerr("An error occurred while running " .. command .. "\n")
+				rconsoleerr("An error occurred while running " .. command .. "\nPlease report this if you think this command may be a bugged.\n")
 			end
 		else
-			rconsoleerr("Failed to execute " .. command .. "!\n")
+			rconsoleerr("Failed to execute " .. command .. "!\nPlease report this if you think this command may be a bugged.\n")
 		end
 	end
 end
