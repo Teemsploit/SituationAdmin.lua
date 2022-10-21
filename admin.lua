@@ -144,10 +144,6 @@ commands = {
 		end
 	end, 
 	
-	bitchcount = function(...)
-		rconsolewarn("You have " .. math.random(1, 100) .. " bitches")
-	end, 
-	
 	joinlogs = function(...)
 		local args = {...}
 		
@@ -190,10 +186,6 @@ commands = {
 		grabTool.Parent = backpack
 	end, 
 	
-	funfact = function(...)
-		rconsoleprint(HttpService:JSONDecode(game:HttpGet("https://uselessfacts.jsph.pl/random.json?language=en")).text .. "\n")
-	end, 
-	
 	walkspeed = function(...)
 		local args = {...}
 		local ws = args[1]
@@ -213,16 +205,6 @@ commands = {
 		local hh = args[1]
 		
 		Humanoid.HipHeight = hh
-	end, 
-	
-	avatar = function(...)
-		local args = {...}
-		local id = args[1]
-		local newmodel = Players:GetCharacterAppearanceAsync(id)
-
-		character = newmodel
-		
-		rconsolewarn("This is client-side only!\n")
 	end, 
 	
 	serverhop = function(...)
@@ -267,13 +249,6 @@ commands = {
 		end
 	end, 
 	
-	cocksize = function(...)
-		rconsolewarn("Your cock is " .. math.random(1, 600) / 100 .. " inches.")
-	end, 
-	--[[
-	Wont Work
-	noclip = Humanoid:ChangeState(11), 
-	]]
 	clear = rconsoleclear
 }
 
