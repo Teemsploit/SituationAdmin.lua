@@ -63,9 +63,9 @@ commands = {
 	noshadows = function(...)
 	Lighting.GlobalShadows = false
 		end,
-	
+
 	position = function(...)
-	rconsoleprint(character.HumanoidRootPart.Position)	
+    rconsoleprint(tostring(character.HumanoidRootPart.Position.X .. character.HumanoidRootPart.Position.Y .. character.HumanoidRootPart.Position.Z))
 	end,
 	
 	fireclickdetecors = function(...)
