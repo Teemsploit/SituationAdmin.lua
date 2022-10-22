@@ -64,6 +64,14 @@ commands = {
 		end
 	end, 
 
+	shadows = function(...)
+		Lighting.GlobalShadows = true
+		end,
+	
+	noshadows = function(...)
+	Lighting.GlobalShadows = false
+		end,
+	
 	position = function(...)
 	rconsoleprint(character.HumanoidRootPart.Position)	
 	end,
