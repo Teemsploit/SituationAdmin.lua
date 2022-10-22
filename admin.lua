@@ -1,11 +1,10 @@
--- Ionized is a skid
 if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Alteral323/v/main/libs/compat.lua"))()(true)
 
-messagebox('Please note "Situation admin" is in beta and you may experience bugs.\nType "help" in the console for a list of commands\nif you need further support please join the discord server https://discord.gg/5VAKhPQh8Z\nCredits:\nTeem\nDrqonic\nIonized particle/AtpZombie42\nHoppingShark1437\nToon\nNeatdev','Situation Admin',0)
+messagebox('Please note "Situation admin" is in beta and you may experience bugs.\nType "help" in the console for a list of commands\nif you need further support please join the discord server https://discord.gg/5VAKhPQh8Z\nCredits:\nTeem\nDrqonic\nIonized particle/AtpZombie42\nHoppingShark1437\nToon\nNeatdev', 'Situation Admin', 0)
 -- by clicking 'OK' you have signed your soul over to Teem
 assert(rconsoleprint, "Your exploit is not supported!")
 assert(fireproximityprompt, "Your exploit is not supported!")
@@ -31,7 +30,9 @@ local hookfunction = hookfunction or function(func, newfunc, applycclosure)
 		replaceclosure(func, newfunc)
 		return func
 	end
-	func = applycclosure and (newcclosure or function(f) return f end) or newfunc
+	func = applycclosure and (newcclosure or function(f)
+		return f
+	end) or newfunc
 	return func
 end
 
@@ -46,7 +47,7 @@ local function load_plugins()
 		local file = value:match("[^\\^/]*.lua$")
 
 		if file ~= nil then
-			local filename = file:sub(0, #file-4)
+			local filename = file:sub(0, #file - 4)
 
 			local call = loadstring(readfile(value))
 
@@ -64,52 +65,51 @@ commands = {
 	end, 
 
 	fireclickdetecors = function(...)
-		for i,v in pairs(workspace:GetDescendants()) do
+		for i, v in pairs(workspace:GetDescendants()) do
 			if v:IsA("ClickDetector") then
 				fireclickdetector(v)
 			end
-end
-		end,
+		end
+	end,
 	
 	naked = function(...)
-		for i,v in pairs(character:GetDescendants()) do
-		if v:IsA("Clothing") or v:IsA("ShirtGraphic") then
-			v:Destroy()
+		for i, v in pairs(character:GetDescendants()) do
+			if v:IsA("Clothing") or v:IsA("ShirtGraphic") then
+				v:Destroy()
+			end
 		end
-	end
-		end,
+	end,
 	
 	noface = function(...)
-		for i,v in pairs(speaker.Character:GetDescendants()) do
-		if v:IsA("Decal") and v.Name == 'face' then
-			v:Destroy()
+		for i, v in pairs(speaker.Character:GetDescendants()) do
+			if v:IsA("Decal") and v.Name == 'face' then
+				v:Destroy()
+			end
 		end
-	end
-		end,
+	end,
 	
 	fullbright = function(...)
 		Lighting.Brightness = 2
-	Lighting.ClockTime = 14
-	Lighting.FogEnd = 100000
-	Lighting.GlobalShadows = false
-	Lighting.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
-		end,
+		Lighting.ClockTime = 14
+		Lighting.FogEnd = 100000
+		Lighting.GlobalShadows = false
+		Lighting.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+	end,
 
 nofog = function(...)
-	Lighting.FogEnd = 100000
-	for i,v in pairs(Lighting:GetDescendants()) do
-		if v:IsA("Atmosphere") then
-			v:Destroy()
+		Lighting.FogEnd = 100000
+		for i, v in pairs(Lighting:GetDescendants()) do
+			if v:IsA("Atmosphere") then
+				v:Destroy()
+			end
 		end
-	end
-		end,
+	end,
 	
 	
 	
 	supportserver = function(...)
 		rconsoleprint("https://discord.gg/aK6k4HKKjb\n Server link has been copied to your clipboard.\n")
-
-		setclipboard("https://discord.gg/aK6k4HKKjb")  
+		setclipboard("https://discord.gg/aK6k4HKKjb")
 	end, 
 
 	noproximitycooldown = function(...)
@@ -120,11 +120,9 @@ nofog = function(...)
 		for _, v in pairs(getconnections(game:GetService("ScriptContext").Error)) do
 			v:Disable()
 		end
-		
 		local storage = game:GetService("ReplicatedStorage")
 		local v = 96000000
 		local msg = "" .. string.rep(" ", (v - 12))
-		
 		for i = 1, 7 do
 			if storage:FindFirstChild("DefaultChatSystemChatEvents") then
 				storage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(msg, "All")
@@ -146,25 +144,18 @@ nofog = function(...)
 		hookfunction((gcinfo or collectgarbage), function(...)
 			return math.random(200, 350)
 		end)
-		
 		local gamemt = getrawmetatable(game)
-		
 		setreadonly(gamemt, false)
-		
 		local nc = gamemt.__namecall
-		
 		gamemt.__namecall = newcclosure(function(...)
 			if (getnamecallmethod() == "GetTotalMemoryUsageMb") then
 				return math.random(395, 405)
 			end
-
 			return nc(...)
 		end)
-		
 		hookfunction(game.Stats.GetTotalMemoryUsageMb, function()
 			return math.random(395, 405)
 		end)
-		
 		rconsoleprint("Memory Spoofed!\n")
 	end, 
 	
@@ -172,15 +163,11 @@ nofog = function(...)
 		for i, plr in ipairs(Players:GetPlayers()) do
 			rconsoleprint(i .. ".) " .. plr.Name .. "\n")
 		end
-		
 		rconsoleprint("Choice: ")
-		
 		local playerNum = tonumber(rconsoleinput())
 		local players = Players:GetPlayers()
-		
 		if playerNum ~= nil and playerNum > 0 and playerNum <= #players then
 			local plrchar = players[playerNum].Character
-			
 			getroot(character).CFrame = getroot(plrchar).CFrame
 		else
 			rconsolewarn("Player chosen is invalid!\n")
@@ -188,17 +175,15 @@ nofog = function(...)
 	end, 
 	
 	joinlogs = function(...)
-		local args = {...}
-		
-		-- Check if true or false
+		local args = {
+			...
+		}
 		joinlogsenabled = args[1] or not joinlogsenabled
-		
 		if joinlogsenabled then
 			joinlogcon = Players.PlayerAdded:Connect(function(plr)
 				rconsoleprint("@@WHITE@@")
 				rconsoleprint("\n" .. plr.Name .. " has joined, account is " .. plr.AccountAge .. " days old!\nInput: ")
 			end)
-			
 			leavelogcon = Players.PlayerRemoving:Connect(function(plr)
 				rconsoleprint("@@WHITE@@")
 				rconsoleprint("\n" .. plr.Name .. " has left!\nInput: ")
@@ -212,17 +197,14 @@ nofog = function(...)
 	btools = function(...)
 		local Player = Players.LocalPlayer
 		local backpack = Player.Backpack
-
 		local hammer = Instance.new("HopperBin")
 		hammer.Name = "Hammer"
 		hammer.BinType = 4
 		hammer.Parent = backpack
-
 		local cloneTool = Instance.new("HopperBin")
 		cloneTool.Name = "Clone"
 		cloneTool.BinType = 3
 		cloneTool.Parent = backpack
-
 		local grabTool = Instance.new("HopperBin")
 		grabTool.Name = "Grab"
 		grabTool.BinType = 2
@@ -230,23 +212,26 @@ nofog = function(...)
 	end, 
 	
 	walkspeed = function(...)
-		local args = {...}
+		local args = {
+			...
+		}
 		local ws = args[1]
-		
 		Humanoid.WalkSpeed = ws
 	end, 
 	
 	jumppower  = function(...)
-		local args = {...}
+		local args = {
+			...
+		}
 		local jp = args[1]
-		
 		Humanoid.JumpPower = jp
 	end, 
 	
 	hipheight  = function(...)
-		local args = {...}
+		local args = {
+			...
+		}
 		local hh = args[1]
-		
 		Humanoid.HipHeight = hh
 	end, 
 	
@@ -255,15 +240,13 @@ nofog = function(...)
 		local pid = game.PlaceId
 		local jid = game.JobId
 		local tps = game:GetService("TeleportService")
-
 		for _, v in ipairs(HttpService:JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. pid .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
-		    if type(v) == "table" and v.maxPlayers > v.playing and v.id ~= jid then
-		        x[#x + 1] = v.id
-		    end
+			if type(v) == "table" and v.maxPlayers > v.playing and v.id ~= jid then
+				x[#x + 1] = v.id
+			end
 		end
-
 		if #x > 0 then
-		    tps:TeleportToPlaceInstance(pid, x[math.random(1, #x)])
+			tps:TeleportToPlaceInstance(pid, x[math.random(1, #x)])
 		end
 	end, 
 	
@@ -278,10 +261,11 @@ nofog = function(...)
 	end, 
 	
 	chat = function(...)
-		local args = {...}
+		local args = {
+			...
+		}
 		local message = args[1]
 		local storage = game:GetService("ReplicatedStorage")
-		
 		if storage:FindFirstChild("DefaultChatSystemChatEvents") then
 			storage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(message, "All")
 		else
@@ -289,8 +273,7 @@ nofog = function(...)
 		end
 	end, 
 	
-	clear = rconsoleclear
-}
+	clear = rconsoleclear}
 
 while task.wait() do
 	rconsoleprint("@@WHITE@@")
