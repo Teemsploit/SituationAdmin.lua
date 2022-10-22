@@ -64,6 +64,10 @@ commands = {
 		end
 	end, 
 
+	position = function(...)
+	rconsoleprint(character.HumanoidRootPart.Position)	
+	end,
+	
 	fireclickdetecors = function(...)
 		for i, v in pairs(workspace:GetDescendants()) do
 			if v:IsA("ClickDetector") then
