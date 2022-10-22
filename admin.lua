@@ -44,7 +44,7 @@ local function load_plugins()
 	local files = listfiles(plugins_directory)
 
 	for key, value in pairs(files) do
-		local file = value:match("[^\\^/]*.lua$")
+		local file = value:match("[^\\^/]*.lua$") or value:match("[^\\^/]*.txt$")
 
 		if file ~= nil then
 			local filename = file:sub(0, #file - 4)
@@ -357,7 +357,7 @@ while task.wait() do
 				rconsoleprint("@@GREEN@@")
 				rconsoleprint("Executed " .. command .. " successfully!\n")
 			else
-				rconsoleerr("An error occurred while running " .. command .. "\nPlease report this in the support server if you think this command may be bugged.\n")
+				rconsoleerr("An error occurred while running "  .. command .. "\nPlease report this in the support server if you think this command may be bugged.\n")
 			end
 		else
 			rconsoleerr("Failed to execute " .. command .. "!\nPlease report this in the support server if you think this command may be bugged.\n")
