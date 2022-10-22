@@ -26,17 +26,6 @@ local function getroot(char)
 	return char:FindFirstChild("HumanoidRootPart") or char:FindFirstChild("Torso") or char:FindFirstChild("UpperTorso")
 end
 
-local hookfunction = hookfunction or function(func, newfunc, applycclosure)
-	if replaceclosure then
-		replaceclosure(func, newfunc)
-		return func
-	end
-	func = applycclosure and (newcclosure or function(f)
-		return f
-	end) or newfunc
-	return func
-end
-
 local function load_plugins()
 	if isfolder(plugins_directory) == false then
 		makefolder(plugins_directory)
