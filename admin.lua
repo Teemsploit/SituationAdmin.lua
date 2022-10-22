@@ -65,7 +65,7 @@ commands = {
 		end,
 
 	position = function(...)
-    rconsoleprint(tostring(character.HumanoidRootPart.Position.X .. character.HumanoidRootPart.Position.Y .. character.HumanoidRootPart.Position.Z))
+    rconsoleprint(tostring(character.HumanoidRootPart.Position.X .. character.HumanoidRootPart.Position.Y .. character.HumanoidRootPart.Position.Z'\n'))
 	end,
 	
 	fireclickdetecors = function(...)
