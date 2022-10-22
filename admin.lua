@@ -86,10 +86,12 @@ commands = {
 	
 day = function(...)
 	Lighting.ClockTime = 14
+		rconsolewarn('This is client-side only.')
 end,
 
 night = function(...)
 	Lighting.ClockTime = 0
+		rconsolewarn('This is client-side only.')
 end,
 	
 	noface = function(...)
@@ -115,6 +117,7 @@ nofog = function(...)
 				v:Destroy()
 			end
 		end
+		rconsolewarn('This is client-side only.')
 	end,
 	
 	
@@ -122,10 +125,13 @@ nofog = function(...)
 	supportserver = function(...)
 		rconsoleprint("https://discord.gg/aK6k4HKKjb\n Server link has been copied to your clipboard.\n")
 		setclipboard("https://discord.gg/aK6k4HKKjb")
+		
 	end, 
 
 	noproximitycooldown = function(...)
+		while task.wait() do
 		game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(fireproximityprompt)
+			end
 	end, 
 
 	lagserver = function(...)
@@ -221,6 +227,9 @@ nofog = function(...)
 		grabTool.Name = "Grab"
 		grabTool.BinType = 2
 		grabTool.Parent = backpack
+		task.wait()
+		rconsolewarn('Anything you add or delete using "btools" will be client-side only.')
+		
 	end, 
 	
 	walkspeed = function(...)
