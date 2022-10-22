@@ -45,7 +45,7 @@ local function load_plugins()
 	local files = listfiles(plugins_directory)
 
 	for key, value in pairs(files) do
-		local file = value:match("[^\\^/]*.lua$") or value:match("[^\\^/]*.txt$")
+		local file = value:match("[^\\^/]+.lua$") or value:match("[^\\^/]+.txt$")
 
 		if file ~= nil then
 			local filename = file:sub(0, #file - 4)
