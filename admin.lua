@@ -267,25 +267,19 @@ nofog = function(...)
 	end, 
 	
 	walkspeed = function(...)
-		local args = {
-			...
-		}
+		local args = {...}
 		local ws = args[1]
 		Humanoid.WalkSpeed = ws
 	end, 
 	
 	jumppower  = function(...)
-		local args = {
-			...
-		}
+		local args = {...}
 		local jp = args[1]
 		Humanoid.JumpPower = jp
 	end, 
 	
 	hipheight  = function(...)
-		local args = {
-			...
-		}
+		local args = {...}
 		local hh = args[1]
 		Humanoid.HipHeight = hh
 	end, 
