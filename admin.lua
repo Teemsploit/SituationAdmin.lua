@@ -12,6 +12,7 @@ assert(fireproximityprompt, "Your exploit is not supported!")
 assert(getgenv, "Your exploit is not supported!")
 
 local HttpService = game:GetService("HttpService");
+local Lighting = game:GetService("Lighting")
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 local character = Player.Character
@@ -62,6 +63,49 @@ commands = {
 		end
 	end, 
 
+	fireclickdetecors = function(...)
+		for i,v in pairs(workspace:GetDescendants()) do
+			if v:IsA("ClickDetector") then
+				fireclickdetector(v)
+			end
+end
+		end,
+	
+	naked = function(...)
+		for i,v in pairs(character:GetDescendants()) do
+		if v:IsA("Clothing") or v:IsA("ShirtGraphic") then
+			v:Destroy()
+		end
+	end
+		end,
+	
+	noface = function(...)
+		for i,v in pairs(speaker.Character:GetDescendants()) do
+		if v:IsA("Decal") and v.Name == 'face' then
+			v:Destroy()
+		end
+	end
+		end,
+	
+	fullbright = function(...)
+		Lighting.Brightness = 2
+	Lighting.ClockTime = 14
+	Lighting.FogEnd = 100000
+	Lighting.GlobalShadows = false
+	Lighting.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+		end,
+
+nofog = function(...)
+	Lighting.FogEnd = 100000
+	for i,v in pairs(Lighting:GetDescendants()) do
+		if v:IsA("Atmosphere") then
+			v:Destroy()
+		end
+	end
+		end,
+	
+	
+	
 	supportserver = function(...)
 		rconsoleprint("https://discord.gg/aK6k4HKKjb\n Server link has been copied to your clipboard.\n")
 
