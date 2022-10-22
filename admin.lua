@@ -84,6 +84,14 @@ commands = {
 		end
 	end,
 	
+day = function(...)
+	Lighting.ClockTime = 14
+end,
+
+night = function(...)
+	Lighting.ClockTime = 0
+end,
+	
 	noface = function(...)
 		for i, v in pairs(speaker.Character:GetDescendants()) do
 			if v:IsA("Decal") and v.Name == 'face' then
