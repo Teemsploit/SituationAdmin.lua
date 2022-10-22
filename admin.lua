@@ -28,7 +28,6 @@ local Player = Players.LocalPlayer
 local character = Player.Character
 local Humanoid = character:WaitForChild("Humanoid")
 local User = Player.Name
-
 local plugins_directory = "situation_plugins"
 
 rconsolename("Welcome to Situation Admin | " .. User)
@@ -286,10 +285,10 @@ while task.wait() do
 				rconsoleprint("@@GREEN@@")
 				rconsoleprint("Executed " .. command .. " successfully!\n")
 			else
-				rconsoleerr("An error occurred while running " .. command .. "\nPlease report this if you think this command may be a bugged.\n")
+				rconsoleerr("An error occurred while running " .. command .. "\nPlease report this in the support server if you think this command may be a bugged.\n")
 			end
 		else
-			rconsoleerr("Failed to execute " .. command .. "!\nPlease report this if you think this command may be a bugged.\n")
+			rconsoleerr("Failed to execute " .. command .. "!\nPlease report this in the support server if you think this command may be a bugged.\n")
 		end
 	end
 end
