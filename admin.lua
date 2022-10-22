@@ -76,6 +76,32 @@ commands = {
 		end
 	end,
 	
+	blockhead = function(...)
+		character.Head:FindFirstChildOfClass("SpecialMesh"):Destroy()
+		end,
+	
+	blockhats = function(...)
+			for _,v in pairs(character:FindFirstChildOfClass('Humanoid'):GetAccessories()) do
+		for i,c in pairs(v:GetDescendants()) do
+			if c:IsA("SpecialMesh") then
+				c:Destroy()
+			end
+		end
+	end
+	end,
+	
+	blocktool = function(...)
+		for _,v in pairs(character:GetChildren()) do
+		if v:IsA("Tool") or v:IsA("HopperBin") then
+			for i,c in pairs(v:GetDescendants()) do
+				if c:IsA("SpecialMesh") then
+					c:Destroy()
+				end
+			end
+		end
+	end
+		end,
+	
 	naked = function(...)
 		for i, v in pairs(character:GetDescendants()) do
 			if v:IsA("Clothing") or v:IsA("ShirtGraphic") then
