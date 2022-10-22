@@ -18,6 +18,8 @@ local Player = Players.LocalPlayer
 local character = Player.Character
 local Humanoid = character:WaitForChild("Humanoid")
 local User = Player.Name
+local runservice = game:GetService("RunService")
+local highlight = Instance.new("Highlight")
 local plugins_directory = "situation_plugins"
 
 rconsolename("Welcome to Situation Admin | " .. User)
@@ -256,6 +258,22 @@ nofog = function(...)
 		
 	end, 
 	
+	noclip = function(...)
+		for i, v in pairs(Workspace[User]:GetChildren()) do
+                if v:IsA("BasePart") then
+                v.CanCollide = false
+                end
+end
+            end,
+	
+	clip = function(...)
+				for i, v in pairs(Workspace[User]:GetChildren()) do
+                if v:IsA("BasePart") then
+                v.CanCollide = true
+                end
+end
+            end,
+		
 	walkspeed = function(...)
 		local args = {...}
 		local ws = args[1]
@@ -290,7 +308,24 @@ nofog = function(...)
 	end, 
 	
 	esp = function(...)
-		loadstring(game:GetObjects("rbxassetid://10342057499")[1].Source)()
+		local Plrs = game:GetService("Players"):GetChildren()
+
+
+highlight.Name = "ESP"
+
+for i, v in pairs(Plrs) do
+    repeat wait() until v.Character
+    local highlightClone = highlight:Clone()
+    highlightClone.Adornee = v.Character
+    highlightClone.Parent = v.Character:FindFirstChild("HumanoidRootPart")
+end
+
+game.Plrs.PlayerAdded:Connect(function(player)
+    repeat wait() until player.Character
+    local highlightClone = highlight:Clone()
+    highlightClone.Adornee = player.Character
+    highlightClone.Parent = player.Character:FindFirstChild("HumanoidRootPart")
+end)
 	end, 
 	
 	antiafk = function(...)
