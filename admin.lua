@@ -307,6 +307,10 @@ end
 		end
 	end, 
 	
+	[[
+	
+	i will fix later
+	
 	esp = function(...)
 		local Plrs = game:GetService("Players"):GetChildren()
 
@@ -326,7 +330,7 @@ game.Plrs.PlayerAdded:Connect(function(player)
     highlightClone.Adornee = player.Character
     highlightClone.Parent = player.Character:FindFirstChild("HumanoidRootPart")
 end)
-	end, 
+	end, ]]
 	
 	antiafk = function(...)
 		for i, v in pairs(getconnections(Players.LocalPlayer.Idled)) do
