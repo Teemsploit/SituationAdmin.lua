@@ -307,31 +307,6 @@ end
 		end
 	end, 
 	
-	[[
-	
-	i will fix later
-	
-	esp = function(...)
-		local Plrs = game:GetService("Players"):GetChildren()
-
-
-highlight.Name = "ESP"
-
-for i, v in pairs(Plrs) do
-    repeat wait() until v.Character
-    local highlightClone = highlight:Clone()
-    highlightClone.Adornee = v.Character
-    highlightClone.Parent = v.Character:FindFirstChild("HumanoidRootPart")
-end
-
-game.Plrs.PlayerAdded:Connect(function(player)
-    repeat wait() until player.Character
-    local highlightClone = highlight:Clone()
-    highlightClone.Adornee = player.Character
-    highlightClone.Parent = player.Character:FindFirstChild("HumanoidRootPart")
-end)
-	end, ]]
-	
 	antiafk = function(...)
 		for i, v in pairs(getconnections(Players.LocalPlayer.Idled)) do
 			v:Disable()
