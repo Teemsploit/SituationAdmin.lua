@@ -273,7 +273,8 @@ nofog = function(...)
 		end
 	end, 
 	
-	clear = rconsoleclear}
+	clear = rconsoleclear
+}
 
 while task.wait() do
 	rconsoleprint("@@WHITE@@")
