@@ -89,6 +89,10 @@ commands = {
 		end
 	end, 
 	
+	rejoin = function(...)
+	game:GetService("TeleportService"):Teleport(game.PlaceId, Player)	
+	end,
+	
 	blocktool = function(...)
 		for _,v in pairs(character:GetChildren()) do
 			if v:IsA("Tool") or v:IsA("HopperBin") then
