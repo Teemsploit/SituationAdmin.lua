@@ -55,6 +55,18 @@ commands = {
 			rconsoleprint(key .. ',\n')
 		end
 	end, 
+	
+	getremotes = function(...)
+		for i, v in pairs(game:GetDescendants()) do
+	if string.match(v.ClassName, "RemoteEvent") then
+		rconsoleprint("\nRemoteEvent found!  \nLocation: " .. v:GetFullName() .. "  \nMethod  FireServer\n")
+	elseif string.match(v.ClassName, "RemoteFunction") then
+		rconsoleprint("\nRemoteFunction found! \nLocation: " .. v:GetFullName() .. "  \nMethod | InvokeServer\n")
+	else
+
+	end
+end
+	end,
 
 	shadows = function(...)
 		Lighting.GlobalShadows = true
