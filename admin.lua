@@ -13,6 +13,7 @@ assert(getgenv, "Your exploit is not supported!")
 local HttpService = game:GetService("HttpService");
 local Lighting = game:GetService("Lighting")
 local Players = game:GetService("Players")
+local tps = game:GetService("TeleportService")
 local Player = Players.LocalPlayer
 local character = Player.Character
 local Humanoid = character:WaitForChild("Humanoid")
@@ -90,8 +91,8 @@ commands = {
 	end, 
 	
 	rejoin = function(...)
-	game:GetService("TeleportService"):Teleport(game.PlaceId, Player)	
-	end,
+		tps:Teleport(game.PlaceId, Player)	
+	end, 
 	
 	blocktool = function(...)
 		for _,v in pairs(character:GetChildren()) do
@@ -312,7 +313,6 @@ commands = {
 		local x = {}
 		local pid = game.PlaceId
 		local jid = game.JobId
-		local tps = game:GetService("TeleportService")
 
 		for _, v in ipairs(HttpService:JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. pid .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
 			if type(v) == "table" and v.maxPlayers > v.playing and v.id ~= jid then
