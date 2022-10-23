@@ -1,4 +1,3 @@
-
 if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
@@ -58,15 +57,15 @@ commands = {
 
 	shadows = function(...)
 		Lighting.GlobalShadows = true
-		end,
+	end, 
 	
 	noshadows = function(...)
-	Lighting.GlobalShadows = false
-		end,
+		Lighting.GlobalShadows = false
+	end, 
 
 	position = function(...)
-    rconsoleprint(tostring(character.HumanoidRootPart.Position.X .. character.HumanoidRootPart.Position.Y .. character.HumanoidRootPart.Position.Z'\n'))
-	end,
+    		rconsoleprint(tostring(character.HumanoidRootPart.Position.X .. character.HumanoidRootPart.Position.Y .. character.HumanoidRootPart.Position.Z'\n'))
+	end, 
 	
 	fireclickdetecors = function(...)
 		for i, v in pairs(workspace:GetDescendants()) do
@@ -74,33 +73,33 @@ commands = {
 				fireclickdetector(v)
 			end
 		end
-	end,
+	end, 
 	
 	blockhead = function(...)
 		character.Head:FindFirstChildOfClass("SpecialMesh"):Destroy()
-		end,
+	end, 
 	
 	blockhats = function(...)
-			for _,v in pairs(character:FindFirstChildOfClass('Humanoid'):GetAccessories()) do
-		for i,c in pairs(v:GetDescendants()) do
-			if c:IsA("SpecialMesh") then
-				c:Destroy()
-			end
-		end
-	end
-	end,
-	
-	blocktool = function(...)
-		for _,v in pairs(character:GetChildren()) do
-		if v:IsA("Tool") or v:IsA("HopperBin") then
+		for _,v in pairs(character:FindFirstChildOfClass('Humanoid'):GetAccessories()) do
 			for i,c in pairs(v:GetDescendants()) do
 				if c:IsA("SpecialMesh") then
 					c:Destroy()
 				end
 			end
 		end
-	end
-		end,
+	end, 
+	
+	blocktool = function(...)
+		for _,v in pairs(character:GetChildren()) do
+			if v:IsA("Tool") or v:IsA("HopperBin") then
+				for i,c in pairs(v:GetDescendants()) do
+					if c:IsA("SpecialMesh") then
+						c:Destroy()
+					end
+				end
+			end
+		end
+	end, 
 	
 	naked = function(...)
 		for i, v in pairs(character:GetDescendants()) do
@@ -108,25 +107,25 @@ commands = {
 				v:Destroy()
 			end
 		end
-	end,
+	end, 
 	
-day = function(...)
-	Lighting.ClockTime = 14
-		rconsolewarn('This is client-side only.')
-end,
+	day = function(...)
+		Lighting.ClockTime = 14
+		rconsolewarn("This is client-side only.")
+	end, 
 
-night = function(...)
-	Lighting.ClockTime = 0
-		rconsolewarn('This is client-side only.')
-end,
+	night = function(...)
+		Lighting.ClockTime = 0
+		rconsolewarn("This is client-side only.")
+	end, 
 	
 	noface = function(...)
 		for i, v in pairs(speaker.Character:GetDescendants()) do
-			if v:IsA("Decal") and v.Name == 'face' then
+			if v:IsA("Decal") and v.Name == "face" then
 				v:Destroy()
 			end
 		end
-	end,
+	end, 
 	
 	fullbright = function(...)
 		Lighting.Brightness = 2
@@ -134,39 +133,40 @@ end,
 		Lighting.FogEnd = 100000
 		Lighting.GlobalShadows = false
 		Lighting.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
-	end,
+	end, 
 
-nofog = function(...)
+	nofog = function(...)
 		Lighting.FogEnd = 100000
+
 		for i, v in pairs(Lighting:GetDescendants()) do
 			if v:IsA("Atmosphere") then
 				v:Destroy()
 			end
 		end
+
 		rconsolewarn('This is client-side only.')
-	end,
-	
-	
-	
+	end, 
+
 	supportserver = function(...)
 		rconsoleprint("https://discord.gg/aK6k4HKKjb\n Server link has been copied to your clipboard.\n")
 		setclipboard("https://discord.gg/aK6k4HKKjb")
-		
 	end, 
 
 	noproximitycooldown = function(...)
 		while task.wait() do
-		game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(fireproximityprompt)
-			end
+			game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(fireproximityprompt)
+		end
 	end, 
 
 	lagserver = function(...)
 		for _, v in pairs(getconnections(game:GetService("ScriptContext").Error)) do
 			v:Disable()
 		end
+
 		local storage = game:GetService("ReplicatedStorage")
 		local v = 96000000
 		local msg = "" .. string.rep(" ", (v - 12))
+
 		for i = 1, 7 do
 			if storage:FindFirstChild("DefaultChatSystemChatEvents") then
 				storage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(msg, "All")
@@ -188,18 +188,25 @@ nofog = function(...)
 		hookfunction((gcinfo or collectgarbage), function(...)
 			return math.random(200, 350)
 		end)
+		
 		local gamemt = getrawmetatable(game)
+
 		setreadonly(gamemt, false)
+
 		local nc = gamemt.__namecall
+
 		gamemt.__namecall = newcclosure(function(...)
-			if (getnamecallmethod() == "GetTotalMemoryUsageMb") then
+			if getnamecallmethod() == "GetTotalMemoryUsageMb" then
 				return math.random(395, 405)
 			end
+
 			return nc(...)
 		end)
+
 		hookfunction(game.Stats.GetTotalMemoryUsageMb, function()
 			return math.random(395, 405)
 		end)
+
 		rconsoleprint("Memory Spoofed!\n")
 	end, 
 	
@@ -207,11 +214,15 @@ nofog = function(...)
 		for i, plr in ipairs(Players:GetPlayers()) do
 			rconsoleprint(i .. ".) " .. plr.Name .. "\n")
 		end
+
 		rconsoleprint("Choice: ")
+
 		local playerNum = tonumber(rconsoleinput())
 		local players = Players:GetPlayers()
+
 		if playerNum ~= nil and playerNum > 0 and playerNum <= #players then
 			local plrchar = players[playerNum].Character
+
 			getroot(character).CFrame = getroot(plrchar).CFrame
 		else
 			rconsolewarn("Player chosen is invalid!\n")
@@ -219,15 +230,16 @@ nofog = function(...)
 	end, 
 	
 	joinlogs = function(...)
-		local args = {
-			...
-		}
+		local args = {...}
+
 		joinlogsenabled = args[1] or not joinlogsenabled
+
 		if joinlogsenabled then
 			joinlogcon = Players.PlayerAdded:Connect(function(plr)
 				rconsoleprint("@@WHITE@@")
 				rconsoleprint("\n" .. plr.Name .. " has joined, account is " .. plr.AccountAge .. " days old!\nInput: ")
 			end)
+
 			leavelogcon = Players.PlayerRemoving:Connect(function(plr)
 				rconsoleprint("@@WHITE@@")
 				rconsoleprint("\n" .. plr.Name .. " has left!\nInput: ")
@@ -257,23 +269,23 @@ nofog = function(...)
 		rconsolewarn('Anything you add or delete using "btools" will be client-side only.')
 		
 	end, 
-	
+
 	noclip = function(...)
 		for i, v in pairs(Workspace[User]:GetChildren()) do
-                if v:IsA("BasePart") then
-                v.CanCollide = false
-                end
-end
-            end,
+			if v:IsA("BasePart") then
+				v.CanCollide = false
+			end
+		end
+	end, 
 	
 	clip = function(...)
-				for i, v in pairs(Workspace[User]:GetChildren()) do
-                if v:IsA("BasePart") then
-                v.CanCollide = true
-                end
-end
-            end,
-		
+		for i, v in pairs(Workspace[User]:GetChildren()) do
+			if v:IsA("BasePart") then
+				v.CanCollide = true
+			end
+		end
+	end, 
+
 	walkspeed = function(...)
 		local args = {...}
 		local ws = args[1]
@@ -297,11 +309,13 @@ end
 		local pid = game.PlaceId
 		local jid = game.JobId
 		local tps = game:GetService("TeleportService")
+
 		for _, v in ipairs(HttpService:JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. pid .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
 			if type(v) == "table" and v.maxPlayers > v.playing and v.id ~= jid then
 				x[#x + 1] = v.id
 			end
 		end
+
 		if #x > 0 then
 			tps:TeleportToPlaceInstance(pid, x[math.random(1, #x)])
 		end
@@ -314,18 +328,17 @@ end
 	end, 
 	
 	chat = function(...)
-		local args = {
-			...
-		}
+		local args = {...}
 		local message = args[1]
 		local storage = game:GetService("ReplicatedStorage")
+
 		if storage:FindFirstChild("DefaultChatSystemChatEvents") then
 			storage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(message, "All")
 		else
 			rconsolewarn("It seems this game has a custom chat this command will not work.\n")
 		end
 	end, 
-	
+
 	clear = rconsoleclear
 }
 
