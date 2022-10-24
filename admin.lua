@@ -51,7 +51,6 @@ end
 commands = {
 	help = function(...)
 		for key, value in pairs(commands) do
-			rconsoleprint("@@WHITE@@")
 			rconsoleprint(key .. ',\n')
 		end
 	end, 
@@ -253,12 +252,10 @@ commands = {
 
 		if joinlogsenabled then
 			joinlogcon = Players.PlayerAdded:Connect(function(plr)
-				rconsoleprint("@@WHITE@@")
 				rconsoleprint("\n" .. plr.Name .. " has joined, account is " .. plr.AccountAge .. " days old!\nInput: ")
 			end)
 
 			leavelogcon = Players.PlayerRemoving:Connect(function(plr)
-				rconsoleprint("@@WHITE@@")
 				rconsoleprint("\n" .. plr.Name .. " has left!\nInput: ")
 			end)
 		elseif not joinlogsenabled and joinlogcon and leavelogcon then
@@ -359,7 +356,6 @@ commands = {
 }
 
 while task.wait() do
-	rconsoleprint("@@WHITE@@")
 	rconsoleprint("Input: ")
 
 	local args = rconsoleinput()
@@ -381,8 +377,7 @@ while task.wait() do
 			local success = pcall(commands[command], table.unpack(tokens))
 
 			if success then
-				rconsoleprint("@@GREEN@@")
-				rconsoleprint("Executed " .. command .. " successfully!\n")
+				rconsoleprint("Executed " .. command .. " successfully!\n", green)
 			else
 				rconsoleerr("An error occurred while running "  .. command .. "\nPlease report this in the support server if you think this command may be bugged.\n")
 			end
