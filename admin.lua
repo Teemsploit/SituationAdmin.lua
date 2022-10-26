@@ -24,6 +24,21 @@ local plugins_directory = "situation_plugins"
 
 rconsolename("Welcome to Situation Admin | " .. User)
 
+-- Some nonce wanted this
+local function split(str, sep)
+	if #sep > 1 then
+		return {}
+	end
+
+	local tokens = {}
+
+	for v in str:gmatch("([^" .. sep .. "]+)") do
+		table.insert(tokens, v)
+	end
+
+	return tokens
+end
+
 local function getroot(char)
 	return char:FindFirstChild("HumanoidRootPart") or char:FindFirstChild("Torso") or char:FindFirstChild("UpperTorso")
 end
@@ -363,11 +378,7 @@ while task.wait() do
 	rconsoleprint("Input: ")
 
 	local args = rconsoleinput()
-	local tokens = {}
-
-	for v in string.gmatch(args, "([^ ]+)") do
-		table.insert(tokens, v)
-	end
+	local tokens = split(args, " ")
 
 	if tokens[1] ~= nil then
 		load_plugins()
