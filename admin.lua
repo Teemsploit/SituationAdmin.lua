@@ -50,10 +50,12 @@ end
 
 commands = {
 	help = function(...)
-		local a = 0
+		local i = 0
+
 		for key, value in pairs(commands) do
-		    a = a + 1
-			rconsoleprint(a .. ') ' .. key .. '\n')
+			i = i + 1
+
+			rconsoleprint(i .. ".) " .. key .. "\n")
 		end
 	end, 
 	
