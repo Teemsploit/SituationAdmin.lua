@@ -286,19 +286,24 @@ commands = {
 	btools = function(...)
 		local Player = Players.LocalPlayer
 		local backpack = Player.Backpack
+
 		local hammer = Instance.new("HopperBin")
 		hammer.Name = "Hammer"
 		hammer.BinType = 4
 		hammer.Parent = backpack
+
 		local cloneTool = Instance.new("HopperBin")
 		cloneTool.Name = "Clone"
 		cloneTool.BinType = 3
 		cloneTool.Parent = backpack
+
 		local grabTool = Instance.new("HopperBin")
 		grabTool.Name = "Grab"
 		grabTool.BinType = 2
 		grabTool.Parent = backpack
+
 		task.wait()
+
 		rconsolewarn('Anything you add or delete using "btools" will be client-side only.')
 		
 	end, 
@@ -322,18 +327,21 @@ commands = {
 	walkspeed = function(...)
 		local args = {...}
 		local ws = args[1]
+
 		Humanoid.WalkSpeed = ws
 	end, 
 	
 	jumppower  = function(...)
 		local args = {...}
 		local jp = args[1]
+
 		Humanoid.JumpPower = jp
 	end, 
 	
 	hipheight  = function(...)
 		local args = {...}
 		local hh = args[1]
+
 		Humanoid.HipHeight = hh
 	end, 
 	
