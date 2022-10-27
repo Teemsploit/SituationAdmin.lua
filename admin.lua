@@ -26,6 +26,10 @@ rconsolename("Welcome to Situation Admin | " .. User)
 
 -- Some nonce wanted this
 local function split(str, sep)
+	if str == nil then
+		return {}
+	end
+
 	if #sep > 1 then
 		return {}
 	end
