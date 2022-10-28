@@ -30,7 +30,7 @@ local plugins_directory = "situation_plugins"
 local rconsolename = (syn and rconsolename) or (rconsolesettitle)
 
 
-rconsolename("Welcome to Situation Admin | " .. User .. '| ' .. identifyexecutor())
+rconsolename("Welcome to Situation Admin | " .. User)
 
 
 local function split(str, sep)
