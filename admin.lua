@@ -2,11 +2,13 @@ if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
 
+--[[ 
 if getgenv().SituationAdmin then	
 	return
 end
 
-getgenv().SituationAdmin = true
+getgenv().SituationAdmin = true ]]
+
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Alteral323/v/main/libs/compat.lua"))()(true)
 
