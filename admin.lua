@@ -16,10 +16,6 @@ assert(rconsoleprint, "Your exploit is not supported!")
 assert(fireproximityprompt, "Your exploit is not supported!")
 assert(getgenv, "Your exploit is not supported!")
 
-function GetRBXVer()
-	return tostring(loadstring(game:HttpGet("https://setup.roblox.com/version"))());
-end;
-
 local HttpService = game:GetService("HttpService");
 local Lighting = game:GetService("Lighting")
 local Players = game:GetService("Players")
@@ -34,7 +30,7 @@ local plugins_directory = "situation_plugins"
 local rconsolename = (syn and rconsolename) or (rconsolesettitle)
 
 
-rconsolename("Welcome to Situation Admin | " .. User .. GetRBXVer())
+rconsolename("Welcome to Situation Admin | " .. User .. '| ' .. identifyexecutor())
 
 
 local function split(str, sep)
