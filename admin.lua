@@ -21,6 +21,8 @@ local User = Player.Name
 local runservice = game:GetService("RunService")
 local highlight = Instance.new("Highlight")
 local plugins_directory = "situation_plugins"
+local rconsolename = (syn and rconsolename) or (rconsolesettitle)
+
 
 rconsolename("Welcome to Situation Admin | " .. User)
 
