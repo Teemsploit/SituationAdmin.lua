@@ -2,6 +2,12 @@ if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
 
+if getgenv().SituationAdmin then	
+	return
+end
+
+getgenv().SituationAdmin = true
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Alteral323/v/main/libs/compat.lua"))()(true)
 
 messagebox('Please note "Situation admin" is in beta and you may experience bugs or broken commands.\nType "help" in the console for a list of commands\nif you need further support please join the discord server https://discord.gg/5VAKhPQh8Z\nCredits:\nTeem\nDrqonic\nIonized particle/AtpZombie42\nHoppingShark1437\nToon', 'Situation Admin', 0)
