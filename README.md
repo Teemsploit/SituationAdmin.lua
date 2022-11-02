@@ -1,5 +1,5 @@
 # SituationAdmin.lua
-A console admin script made for Synapse X and script-ware.<br>
+A console admin script made for Synapse X and script-ware, currently working on adding temple support.<br>
 <p>
 May not work on other executors.<br>
 you can get Synapse X at https://x.synapse.to/<br>
