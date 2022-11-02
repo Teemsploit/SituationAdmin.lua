@@ -13,7 +13,10 @@ getgenv().SituationAdmin = true ]]
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Alteral323/v/main/libs/compat.lua"))()(true)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Teemsploit/SituationAdmin.lua/main/IrisBetterConsole.lua"))()
 
-messagebox('Please note "Situation admin" is in beta and you may experience bugs or broken commands.\nType "help" in the console for a list of commands\nif you need further support please join the discord server https://discord.gg/5VAKhPQh8Z\nCredits:\nTeem\nDrqonic\nIonized particle/AtpZombie42\nHoppingShark1437\nToon', 'Situation Admin', 0)
+if syn then
+	messagebox('Please note "Situation admin" is in beta and you may experience bugs or broken commands.\nType "help" in the console for a list of commands\nif you need further support please join the discord server https://discord.gg/5VAKhPQh8Z\nCredits:\nTeem\nDrqonic\nIonized particle/AtpZombie42\nHoppingShark1437\nToon', 'Situation Admin', 0)
+end
+
 -- by clicking 'OK' you have signed your soul over to Teem
 assert(rconsoleprint, "Your exploit is not supported!")
 assert(fireproximityprompt, "Your exploit is not supported!")
@@ -113,7 +116,7 @@ commands = {
     		rconsoleprint(tostring(character.HumanoidRootPart.Position.X .. character.HumanoidRootPart.Position.Y .. character.HumanoidRootPart.Position.Z'\n'))
 	end, 
 	
-	fireclickdetecors = function(...)
+	fireclickdetectors = function(...)
 		for i, v in pairs(workspace:GetDescendants()) do
 			if v:IsA("ClickDetector") then
 				fireclickdetector(v)
