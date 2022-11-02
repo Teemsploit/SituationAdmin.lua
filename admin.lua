@@ -2,18 +2,14 @@ if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
 
---[[ 
-if getgenv().SituationAdmin then	
-	return
-end
-
-getgenv().SituationAdmin = true ]]
-
-
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Alteral323/v/main/libs/compat.lua"))()(true)
 
+if syn then
 messagebox('Please note "Situation admin" is in beta and you may experience bugs or broken commands.\nType "help" in the console for a list of commands\nif you need further support please join the discord server https://discord.gg/5VAKhPQh8Z\nCredits:\nTeem\nDrqonic\nIonized particle/AtpZombie42\nHoppingShark1437\nToon', 'Situation Admin', 0)
--- by clicking 'OK' you have signed your soul over to Teem
+	else
+	-- messagebox doesnt work on most free exploits therefore it should be limited to ones that work
+end
+
 assert(rconsoleprint, "Your exploit is not supported!")
 assert(fireproximityprompt, "Your exploit is not supported!")
 assert(getgenv, "Your exploit is not supported!")
@@ -88,6 +84,10 @@ commands = {
 		end
 	end, 
 	
+	listplugins = function(...)
+		rconsoleprint(files .. '\n')
+		end,
+	
 	getremotes = function(...)
 		for i, v in pairs(game:GetDescendants()) do
 			if string.match(v.ClassName, "RemoteEvent") then
@@ -112,7 +112,7 @@ commands = {
     		rconsoleprint(tostring(character.HumanoidRootPart.Position.X .. character.HumanoidRootPart.Position.Y .. character.HumanoidRootPart.Position.Z'\n'))
 	end, 
 	
-	fireclickdetecors = function(...)
+	fireclickdetectors = function(...) -- what retard mispelled this
 		for i, v in pairs(workspace:GetDescendants()) do
 			if v:IsA("ClickDetector") then
 				fireclickdetector(v)
@@ -203,7 +203,7 @@ commands = {
 
 	noproximitycooldown = function(...)
 		while task.wait() do
-			game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(fireproximityprompt)
+			game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(fireproximityprompt) -- no way to turn off??????
 		end
 	end, 
 
@@ -264,7 +264,7 @@ commands = {
 			rconsoleprint(i .. ".) " .. plr.Name .. "\n")
 		end
 
-		rconsoleprint("Choice: ")
+		rconsoleprint("Type the number next to the players name to teleport to them\nChoice: ")
 
 		local playerNum = tonumber(rconsoleinput())
 		local players = Players:GetPlayers()
@@ -316,7 +316,12 @@ commands = {
 		grabTool.BinType = 2
 		grabTool.Parent = backpack
 
+		--[[ 
+		
+		this wait is pointless
 		task.wait()
+		
+		]]--
 
 		rconsolewarn('Anything you add or delete using "btools" will be client-side only.')
 		
@@ -325,7 +330,7 @@ commands = {
 	noclip = function(...)
 		for i, v in pairs(Workspace[User]:GetChildren()) do
 			if v:IsA("BasePart") then
-				v.CanCollide = false
+				v.CanCollide = false -- ew sitty method
 			end
 		end
 	end, 
@@ -403,6 +408,7 @@ while task.wait() do
 	local tokens = split(args, " ")
 
 	if tokens[1] ~= nil then
+		
 		load_plugins()
 
 		local command = string.lower(tokens[1])
