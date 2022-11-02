@@ -31,22 +31,17 @@ local rconsolename = (syn and rconsolename) or (rconsolesettitle)
 rconsolename("Welcome to Situation Admin | " .. User)
 
 
-local function split(str, sep)
-	if str == nil then
-		return {}
+-- better split
+function split(inputstr, sep)
+	if sep == nil then
+		sep = "%s"
 	end
-
-	if #sep > 1 then
-		return {}
+	local t={}
+	i=1
+	for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
+		t[i] = str i = i + 1
 	end
-
-	local tokens = {}
-
-	for v in str:gmatch("([^" .. sep .. "]+)") do
-		table.insert(tokens, v)
-	end
-
-	return tokens
+	return t
 end
 
 local function getroot(char)
