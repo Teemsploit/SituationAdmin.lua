@@ -11,7 +11,7 @@ You can find the support server here https://discord.gg/5VAKhPQh8Z<br>
 <h1>How to use the script</h1>
 Situation admin is very easy to use, first you will need an executor for roblox for this we would recommend either 'SynapseX' or 'Script-Ware' the link for both is listed above once you have installed the executor simply copy and paste the code below into your executor and click 'execute'.
 Type 'Help' into the console once executed for a list of commands, currently over 30 commands with more coming soon
-```lua
+```
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/Teemsploit/SituationAdmin.lua/main/admin.lua'),true))()
 ```
 </p>
