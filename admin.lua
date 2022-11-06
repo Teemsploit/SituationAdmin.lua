@@ -25,9 +25,7 @@ local highlight = Instance.new("Highlight")
 local plugins_directory = "situation_plugins"
 local rconsolename = (syn and rconsolename) or (rconsolesettitle)
 
-
 rconsolename("Welcome to Situation Admin | " .. User)
-
 
 local function split(str, sep)
 	if str == nil then
@@ -85,8 +83,9 @@ commands = {
 	execute = function(...)
 		local args = {...}
 		local text = args[1]
+		
 		loadstring(text)
-		end,
+	end, 
 	
 	getremotes = function(...)
 		for i, v in pairs(game:GetDescendants()) do
