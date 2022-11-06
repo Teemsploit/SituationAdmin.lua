@@ -82,6 +82,12 @@ commands = {
 		end
 	end, 
 	
+	execute = function(...)
+		local args = {...}
+		local text = args[1]
+		loadstring(text)
+		end,
+	
 	getremotes = function(...)
 		for i, v in pairs(game:GetDescendants()) do
 			if string.match(v.ClassName, "RemoteEvent") then
