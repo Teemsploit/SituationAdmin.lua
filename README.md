@@ -19,10 +19,3 @@ To create a plugin you will need to create a new file such as <command_name>.lua
 Situation admin will treat every lua file within the folder as a function, whatever is inside the file is what is gets ran whenever you execute the command.<br>
 The name of the file will be what the command is called for example if the file is named "example.lua" to run the command you would type "command" in the input
 </p>
-
-<h1>Warning about a skid</h1>
-<p>
-There is a skid going around taking our project and needlessly modifying it trying to claim the code has been skidded. He goes by "HoppingShark1437" and he is someone with very little understanding of Lua. Based on past pull requests he has tried to make incompatible changes that conflict with the plugin system, tries to unnecessarily change the splitter by making it work with legacy code even though anyone with half a brain knows to use an up-to-date Lua, and has tried to modify our command lookup from bracket notation to dot notation solely because "it doesn't make sense" (to him anyway) when by changing that, the entire lookup would break.<br>
-<br>
-This man has tried to say Situation Admin has been skidded, when any outside help has been sourced and credited, including him for his past pull requests. Let me remind you, the base of Situation Admin has been kept exactly as it was in his skid-rip and he has only removed certain commands, despite talking ill of our work.
-</p>
