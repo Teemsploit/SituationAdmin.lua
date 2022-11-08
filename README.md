@@ -1,5 +1,9 @@
 # SituationAdmin.lua
 A console admin script made for Synapse X and script-ware, currently working on adding temple support.<br>
+
+```lua
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/Teemsploit/SituationAdmin.lua/main/admin.lua'),true))()
+```
 <p>
 May not work on other executors.<br>
 you can get Synapse X at https://x.synapse.to/<br>
