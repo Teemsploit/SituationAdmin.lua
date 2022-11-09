@@ -26,7 +26,8 @@ The name of the file will be what the command is called for example if the file 
 <h1>License</h1>
 The source code for Situation admin is available under the [MIT license][mit].
 
-[mit]: LICENSE
+[mit]: LICENSE<br>
+
 <h1>Thank you to our contributors</h>
 
 [![contributors](https://contributors-img.web.app/image?repo=Teemsploit/SituationAdmin.lua)](https://github.com/Teemsploit/SituationAdmin.lua/graphs/contributors)
