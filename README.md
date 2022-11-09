@@ -23,10 +23,6 @@ To create a plugin you will need to create a new file such as <command_name>.lua
 Situation admin will treat every lua file within the folder as a function, whatever is inside the file is what is gets ran whenever you execute the command.<br>
 The name of the file will be what the command is called for example if the file is named "example.lua" to run the command you would type "command" in the input
 </p>
-<h1>License</h1>
-The source code for Situation admin is available under the [MIT license][mit].
-
-[mit]: LICENSE<br>
 
 <h1>Thank you to our contributors</h>
 
