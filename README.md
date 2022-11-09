@@ -26,4 +26,6 @@ The name of the file will be what the command is called for example if the file 
 
 <h1>Thank you to our contributors</h>
 
-[![contributors](https://contributors-img.web.app/image?repo=Teemsploit/SituationAdmin.lua)](https://github.com/Teemsploit/SituationAdmin.lua/graphs/contributors)
+[![contributors](https://contributors-img.web.app/image?repo=Teemsploit/SituationAdmin.lua)](https://github.com/Teemsploit/SituationAdmin.lua/graphs/contributors)<br>
+
+<p>Special Thanks to Drqonic for coding the system that actually makes the admin work</p>
