@@ -8,7 +8,7 @@ loadstring(game:HttpGet(('https://raw.githubusercontent.com/Teemsploit/Situation
 May not work on other executors.<br>
 you can get Synapse X at https://x.synapse.to/<br>
 you can get script-ware at https://script-ware.com/<br>
-You can find the support server here https://discord.gg/5VAKhPQh8Z<br>
+You can find the support server here https://discord.gg/ju6vs9QFxA<br>
 </p>
 <hr>
 <p>
