@@ -79,51 +79,54 @@ commands = {
 			rconsoleprint(i .. ".) " .. key .. "\n")
 		end
 	end, 
+	
 	removelegs = function(...)
-		for i,v in pairs(character:GetChildren()) do
+		for i, v in pairs(character:GetChildren()) do
 			if v:IsA("BasePart") and
 				v.Name == "RightUpperLeg" or
 				v.Name == "LeftUpperLeg" then
 				v:Destroy()
 			end
 		end
-	task.wait()
-		for i,v in pairs(character:GetChildren()) do
-			if v:IsA("BasePart") and
-				v.Name == "Right Leg" or
-				v.Name == "Left Leg" then
-				v:Destroy()
+
+		task.wait()
+			for i, v in pairs(character:GetChildren()) do
+				if v:IsA("BasePart") and
+					v.Name == "Right Leg" or
+					v.Name == "Left Leg" then
+					v:Destroy()
+				end
 			end
 		end
-	end
-	end,
+	end, 
 
 	removearms = function(...)
-		for i,v in pairs(character:GetChildren()) do
+		for i, v in pairs(character:GetChildren()) do
 			if v:IsA("BasePart") and
 				v.Name == "RightUpperArm" or
 				v.Name == "LeftUpperArm" then
 				v:Destroy()
 			end
 		end
-	task.wait()
-		for i,v in pairs(character:GetChildren()) do
-			if v:IsA("BasePart") and
-				v.Name == "Right Arm" or
-				v.Name == "Left Arm" then
-				v:Destroy()
+
+		task.wait()
+			for i, v in pairs(character:GetChildren()) do
+				if v:IsA("BasePart") and
+					v.Name == "Right Arm" or
+					v.Name == "Left Arm" then
+					v:Destroy()
+				end
 			end
 		end
-	end
-	end,
+	end, 
 	
-sit = function(...)
-character:FindFirstChildOfClass("Humanoid").Sit = true
-end,
+	sit = function(...)
+		character:FindFirstChildOfClass("Humanoid").Sit = true
+	end, 
 
-jump = function(...)
-character:FindFirstChildOfClass("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
-end,
+	jump = function(...)
+		character:FindFirstChildOfClass("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
+	end, 
 
 	execute = function(...)
 		local args = {...}
@@ -132,17 +135,17 @@ end,
 		loadstring(text)
 	end, 
 	
-removetoolmesh = function(...)
-for _,v in pairs(character:GetChildren()) do
-		if v:IsA("Tool") or v:IsA("HopperBin") then
-			for i,c in pairs(v:GetDescendants()) do
-				if c:IsA("SpecialMesh") then
-					c:Destroy()
+	removetoolmesh = function(...)
+		for _,v in pairs(character:GetChildren()) do
+			if v:IsA("Tool") or v:IsA("HopperBin") then
+				for i,c in pairs(v:GetDescendants()) do
+					if c:IsA("SpecialMesh") then
+						c:Destroy()
+					end
 				end
 			end
 		end
-	end
-end,
+	end, 
 
 	getremotes = function(...)
 		for i, v in pairs(game:GetDescendants()) do
@@ -155,6 +158,7 @@ end,
 			end
 		end
 	end, 
+
 	getremoteevents = function(...)
 		for i, v in pairs(game:GetDescendants()) do
 			if string.match(v.ClassName, "RemoteEvent") then
@@ -164,6 +168,7 @@ end,
 			end
 		end
 	end, 
+
 	getremotefunctions = function(...)
 		for i, v in pairs(game:GetDescendants()) do
 			if string.match(v.ClassName, "RemoteFunction") then
@@ -173,6 +178,7 @@ end,
 			end
 		end
 	end, 
+
 	shadows = function(...)
 		Lighting.GlobalShadows = true
 	end, 
