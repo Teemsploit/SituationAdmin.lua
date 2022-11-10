@@ -2,8 +2,6 @@ if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Alteral323/v/main/libs/compat.lua"))()(true)
-
 assert(rconsoleprint, "Your exploit is not supported!")
 assert(fireproximityprompt, "Your exploit is not supported!")
 assert(getgenv, "Your exploit is not supported!")
