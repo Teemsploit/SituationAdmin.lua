@@ -4,7 +4,7 @@ end
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Alteral323/v/main/libs/compat.lua"))()(true)
 
-messagebox('Please note "Situation admin" is in beta and you may experience bugs or broken commands.\nType "help" in the console for a list of commands\nif you need further support please join the discord server https://discord.gg/5VAKhPQh8Z\nCredits:\nTeem\nDrqonic\nIonized particle/AtpZombie42\nHoppingShark1437\nToon', 'Situation Admin', 0)
+--messagebox('Please note "Situation admin" is in beta and you may experience bugs or broken commands.\nType "help" in the console for a list of commands\nif you need further support please join the discord server https://discord.gg/5VAKhPQh8Z\nCredits:\nTeem\nDrqonic\nIonized particle/AtpZombie42\nHoppingShark1437\nToon', 'Situation Admin', 0)
 
 
 -- by clicking 'OK' you have signed your soul over to Teem
@@ -24,8 +24,16 @@ local runservice = game:GetService("RunService")
 local highlight = Instance.new("Highlight")
 local plugins_directory = "situation_plugins"
 local rconsolename = (syn and rconsolename) or (rconsolesettitle)
+local executiontext = [[
+Please note 'Situation Admin' is in beta
+you may experience bugs if you do
+please report it in the support server.
+
+Type 'Help' for a list of commands.
+]]
 
 rconsolename("Welcome to Situation Admin | " .. User)
+rconsoleprint("\nThank you for using Situation Admin " .. User .. '\n' .. executiontext .. '\n')
 
 local function split(str, sep)
 	if str == nil then
@@ -97,8 +105,7 @@ commands = {
 					v:Destroy()
 				end
 			end
-		end
-	end, 
+		end,
 
 	removearms = function(...)
 		for i, v in pairs(character:GetChildren()) do
@@ -117,8 +124,7 @@ commands = {
 					v:Destroy()
 				end
 			end
-		end
-	end, 
+		end,
 	
 	sit = function(...)
 		character:FindFirstChildOfClass("Humanoid").Sit = true
@@ -150,9 +156,9 @@ commands = {
 	getremotes = function(...)
 		for i, v in pairs(game:GetDescendants()) do
 			if string.match(v.ClassName, "RemoteEvent") then
-				rconsoleprint("\nRemoteEvent found!  \nLocation: " .. v:GetFullName() .. "  \nMethod  FireServer\n")
+				rconsoleprint("\nRemoteEvent found!  \nLocation: " .. v:GetFullName() .. "  \nMethod  FireServer\n")
 			elseif string.match(v.ClassName, "RemoteFunction") then
-				rconsoleprint("\nRemoteFunction found! \nLocation: " .. v:GetFullName() .. "  \nMethod | InvokeServer\n")
+				rconsoleprint("\nRemoteFunction found! \nLocation: " .. v:GetFullName() .. "  \nMethod | InvokeServer\n")
 			else
 
 			end
@@ -162,7 +168,7 @@ commands = {
 	getremoteevents = function(...)
 		for i, v in pairs(game:GetDescendants()) do
 			if string.match(v.ClassName, "RemoteEvent") then
-				rconsoleprint("\nRemoteEvent found!  \nLocation: " .. v:GetFullName() .. "  \nMethod  FireServer\n")
+				rconsoleprint("\nRemoteEvent found!  \nLocation: " .. v:GetFullName() .. "  \nMethod  FireServer\n")
 			else
 
 			end
@@ -172,7 +178,7 @@ commands = {
 	getremotefunctions = function(...)
 		for i, v in pairs(game:GetDescendants()) do
 			if string.match(v.ClassName, "RemoteFunction") then
-				rconsoleprint("\nRemoteFunction found! \nLocation: " .. v:GetFullName() .. "  \nMethod | InvokeServer\n")
+				rconsoleprint("\nRemoteFunction found! \nLocation: " .. v:GetFullName() .. "  \nMethod | InvokeServer\n")
 			else
 
 			end
