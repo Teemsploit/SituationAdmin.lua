@@ -13,6 +13,8 @@ local tps = game:GetService("TeleportService")
 local Player = Players.LocalPlayer
 local character = Player.Character
 local Humanoid = character:WaitForChild("Humanoid")
+local rp = character.HumanoidRootPart
+local mouse = Player:GetMouse()
 local User = Player.Name
 local runservice = game:GetService("RunService")
 local highlight = Instance.new("Highlight")
@@ -81,6 +83,15 @@ commands = {
 			rconsoleprint(i .. ".) " .. key .. "\n")
 		end
 	end, 
+
+	clicktptool = function(...)
+local tool = Instance.new("Tool",Player.Backpack)
+tool.Name = "click teleport"
+tool.RequiresHandle = false
+tool.Activated:Connect(function()
+    rp.CFrame = CFrame.new(mouse.Hit.X,mouse.Hit.Y + 4,mouse.Hit.Z)
+end)
+end,
 	
 	removelegs = function(...)
 		for i, v in pairs(character:GetChildren()) do
