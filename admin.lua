@@ -1,11 +1,14 @@
+-- game loaded check
 if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
 
+-- support checks
 assert(rconsoleprint, "Your exploit is not supported!")
 assert(fireproximityprompt, "Your exploit is not supported!")
 assert(getgenv, "Your exploit is not supported!")
 
+-- locals
 local HttpService = game:GetService("HttpService");
 local Lighting = game:GetService("Lighting")
 local Players = game:GetService("Players")
@@ -30,7 +33,7 @@ Type 'Help' for a list of commands.
 
 rconsolename("Welcome to Situation Admin | " .. User)
 rconsoleprint("\nThank you for using Situation Admin " .. User .. '\n' .. executiontext .. '\n')
-
+-- fucntions
 local function split(str, sep)
 	if str == nil then
 		return {}
@@ -72,7 +75,13 @@ local function load_plugins()
 		end
 	end
 end
+--[[
+commands:
 
+COMMAND_NAME = function(...)
+			--code for command goes here
+		end,
+]]
 commands = {
 	help = function(...)
 		local i = 0
@@ -485,7 +494,7 @@ end,
 
 	clear = rconsoleclear
 }
-
+-- command runner
 while task.wait() do
 	rconsoleprint("Input: ")
 
