@@ -75,13 +75,14 @@ local function load_plugins()
 		end
 	end
 end
+
 --[[
 commands:
 
 COMMAND_NAME = function(...)
 			--code for command goes here
 		end,
-]]
+]]--
 commands = {
 	help = function(...)
 		local i = 0
