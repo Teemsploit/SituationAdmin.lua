@@ -25,15 +25,16 @@ local plugins_directory = "situation_plugins"
 local rconsolename = (syn and rconsolename) or (rconsolesettitle)
 local executiontext = [[
 Please note 'Situation Admin' is in beta
-you may experience bugs if you do
-please report it in the support server.
+you may experience bugs if you do please report it in the support server
+to join the support server type 'supportserver' into the input.
+if you would like to request a feature or a command also join the support server.
 
 Type 'Help' for a list of commands.
 ]]
 
 rconsolename("Welcome to Situation Admin | " .. User)
 rconsoleprint("\nThank you for using Situation Admin " .. User .. '\n' .. executiontext .. '\n')
--- fucntions
+-- functions
 local function split(str, sep)
 	if str == nil then
 		return {}
