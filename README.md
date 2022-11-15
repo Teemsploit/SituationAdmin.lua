@@ -2,7 +2,9 @@
 A console admin script made for Synapse X and script-ware, currently working on adding temple support.<br>
 
 ```lua
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/Teemsploit/SituationAdmin.lua/main/admin.lua'),true))()
+loadstring(game:HttpGet(('[[
+https://raw.githubusercontent.com/Teemsploit/SituationAdmin.lua/main/admin.lua
+]]'),true))()
 ```
 <p>
 May not work on other executors.<br>
@@ -21,7 +23,7 @@ Type 'Help' into the console once executed for a list of commands, currently ove
 A folder named "situation_plugins" will be created upon execution.<br>
 To create a plugin you will need to create a new file such as <command_name>.lua.<br>
 Situation admin will treat every lua file within the folder as a function, whatever is inside the file is what is gets ran whenever you execute the command.<br>
-The name of the file will be what the command is called for example if the file is named "example.lua" to run the command you would type "command" in the input
+The name of the file will be what the command is called for example if the file is named "HelloWorld.lua" or "HellowWorld.txt" to run the command you would type "HelloWorld" in the input, commands are not case sensitive therefore you could also type "HeLLoWoRLd" and the command would still run.
 </p>
 
 <h1>Thank you to our contributors</h>
