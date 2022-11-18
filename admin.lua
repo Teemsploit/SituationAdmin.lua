@@ -6,7 +6,10 @@ end
 -- support checks
 assert(rconsoleprint, "Your exploit is not supported!")
 assert(fireproximityprompt, "Your exploit is not supported!")
+--[[
+getgenv isnt used????
 assert(getgenv, "Your exploit is not supported!")
+]]
 
 -- locals
 local HttpService = game:GetService("HttpService");
@@ -94,6 +97,21 @@ commands = {
 			rconsoleprint(i .. ".) " .. key .. "\n")
 		end
 	end, 
+	
+	fly = function(...)
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/PhoenixAceVFX/Roblox-Scripts/master/FE%20Fly.lua')
+		-- why no fly?
+		end,
+		
+		skid = function(...)
+			while wait() do
+			rconsoleprint('Drqonic')
+			rconsoleprint('Teemsploit')
+			rconsoleprint('AtpZombie42')
+			rconsoleprint('Teemsploit2')
+			rconsoleprint('Toon-Arch')
+				end
+		end,
 
 	clicktptool = function(...)
 	local tool = Instance.new("Tool",Player.Backpack)
@@ -276,7 +294,7 @@ end,
 			end
 		end
 	end, 
-	
+	-- drqonic is a nigger
 	fullbright = function(...)
 		Lighting.Brightness = 2
 		Lighting.ClockTime = 14
@@ -284,7 +302,7 @@ end,
 		Lighting.GlobalShadows = false
 		Lighting.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
 	end, 
-
+-- no shit its client side
 	nofog = function(...)
 		Lighting.FogEnd = 100000
 
@@ -296,18 +314,18 @@ end,
 
 		rconsolewarn('This is client-side only.')
 	end, 
-
+-- shit server
 	supportserver = function(...)
 		rconsoleprint("https://discord.gg/aK6k4HKKjb\n Server link has been copied to your clipboard.\n")
 		setclipboard("https://discord.gg/aK6k4HKKjb")
 	end, 
-
+-- causes lag
 	noproximitycooldown = function(...)
 		while task.wait() do
 			game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(fireproximityprompt)
 		end
 	end, 
-
+-- this would just lag you
 	lagserver = function(...)
 		for _, v in pairs(getconnections(game:GetService("ScriptContext").Error)) do
 			v:Disable()
@@ -325,7 +343,7 @@ end,
 			end
 		end
 	end, 
-	
+	-- drqonic got me banned
 	deletetouchinterests = function(...)
 		for _, v in ipairs(workspace:GetDescendants()) do
 			if v.IsA(v, "TouchTransmitter") then
@@ -333,7 +351,7 @@ end,
 			end
 		end
 	end, 
-	
+	-- spoof memory doesnt eve work
 	spoofmemory = function(...)
 		hookfunction((gcinfo or collectgarbage), function(...)
 			return math.random(200, 350)
@@ -359,7 +377,7 @@ end,
 
 		rconsoleprint("Memory Spoofed!\n")
 	end, 
-	
+	-- retarded script
 	teleport = function(...)
 		for i, plr in ipairs(Players:GetPlayers()) do
 			rconsoleprint(i .. ".) " .. plr.Name .. "\n")
@@ -397,7 +415,7 @@ end,
 			leavelogcon = leavelogcon:Disconnect()
 		end
 	end, 
-	
+	-- btools skidded
 	btools = function(...)
 		local Player = Players.LocalPlayer
 		local backpack = Player.Backpack
@@ -422,7 +440,7 @@ end,
 		rconsolewarn('Anything you add or delete using "btools" will be client-side only.')
 		
 	end, 
-
+-- clearly skidded
 	noclip = function(...)
 		for i, v in pairs(Workspace[User]:GetChildren()) do
 			if v:IsA("BasePart") then
@@ -452,7 +470,7 @@ end,
 
 		Humanoid.JumpPower = jp
 	end, 
-	
+	-- shit commands
 	hipheight  = function(...)
 		local args = {...}
 		local hh = args[1]
@@ -497,11 +515,12 @@ end,
 	clear = rconsoleclear
 }
 -- command runner
+	--slow
 while task.wait() do
 	rconsoleprint("Input: ")
 
 	local args = rconsoleinput()
-	local tokens = split(args, " ")
+	local tokens = split(args, " ") --split already exists in lua retards http://lua-users.org/wiki/SplitJoin
 
 	if tokens[1] ~= nil then
 		load_plugins()
@@ -510,7 +529,7 @@ while task.wait() do
 		local getCommand = commands[command]
 
 		table.remove(tokens, 1)
-
+-- bad method
 		if getCommand then
 			local success = pcall(commands[command], table.unpack(tokens))
 
@@ -519,7 +538,7 @@ while task.wait() do
 			else
 				rconsoleerr("An error occurred while running "  .. command .. "\nPlease report this in the support server if you think this command may be bugged.\n")
 			end
-		else
+		else -- why is there two errors kinda retarded
 			rconsoleerr("Failed to execute " .. command .. "!\nPlease report this in the support server if you think this command may be bugged.\n")
 		end
 	end
