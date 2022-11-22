@@ -23,7 +23,7 @@ Type 'Help' into the console once executed for a list of commands, currently ove
 A folder named "situation_plugins" will be created upon execution.<br>
 To create a plugin you will need to create a new file such as <command_name>.lua.<br>
 Situation admin will treat every lua file within the folder as a function, whatever is inside the file is what is gets ran whenever you execute the command.<br>
-The name of the file will be what the command is called for example if the file is named "HelloWorld.lua" or "HellowWorld.txt" to run the command you would type "HelloWorld" in the input, commands are not case sensitive therefore you could also type "HeLLoWoRLd" and the command would still run.
+The name of the file will be what the command is called for example if the file is named "HelloWorld.lua" or "HelloWorld.txt" to run the command you would type "HelloWorld" in the input, commands are not case sensitive therefore you could also type "HeLLoWoRLd" and the command would still run.
 </p>
 
 <h1>Thank you to our contributors</h>
@@ -31,3 +31,4 @@ The name of the file will be what the command is called for example if the file 
 [![contributors](https://contributors-img.web.app/image?repo=Teemsploit/SituationAdmin.lua)](https://github.com/Teemsploit/SituationAdmin.lua/graphs/contributors)<br>
 
 <h4>Special Thanks to Drqonic for coding the system that actually makes the admin work</h4>
+
